@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="google-site-verification" content="X-NyWbTQ-1CgZ7cvLZYPOc0BzO7PblJv201J3PJXAJI">
+    <meta name="theme-color" content="#ce1126">
+
+    
+        <meta name="description" content="Connect Arduino to PubNub in 2 Steps">
+    
+    <title>Connect Arduino to PubNub in 2 Steps - PubNub</title>
+
+    <meta name="google-site-verification" content="t5d3Yna_Cvup118ZfZmBN0Om5UroaqXI3q1ewUD7pzA">
+    <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, initial-scale=1.0, maximum-scale=1.5;">
+    
+
+      <!-- Social Meta and Open Graph Data -->
+    <meta property="og:title" content="Connect Arduino to PubNub in 2 Steps">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.pubnub.com/blog/connect-arduino-to-pubnub-in-2-steps/">
+
+    <meta name="twitter:domain" content="www.pubnub.com">
+        <meta property="og:description" content="Get your Arduino up and running with the PubNub Data Stream Network for signaling and data transfer in two...">
+    <meta name="twitter:description" content="Get your Arduino up and running with the PubNub Data Stream Network for signaling and data transfer in two...">
+
+            <meta name="twitter:image:src" content="http://www.pubnub.com/blog/wp-content/uploads/2014/06/ConnectingArduino.jpg">
+        <meta property="og:image" content="http://www.pubnub.com/blog/wp-content/uploads/2014/06/ConnectingArduino.jpg">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pubnub">
+    <meta name="twitter:creator" content="bhavana1110">
+    <meta name="twitter:title" content="Connect Arduino to PubNub in 2 Steps">
+
+    
+    <script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/pd.js" type="text/javascript"></script><script id="undefined" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/inpage_linkid.js" async="" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/bf.js" async="" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/me" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/ga.js" async="" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/mixpanel-2-latest.js" async="" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/30715011.js"></script>
+
+    <link rel="icon" type="image/png" href="http://www.pubnub.com/static/images/structure/favicon.png">
+
+    
+    <link rel="stylesheet" href="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/styles.css">
+    <!--[if lt IE 9]> <script src="/static/js/ie.js?ts=1425334706"></script> <![endif]-->
+
+          <script type="text/javascript" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/buttons.js"></script>
+      <script type="text/javascript">stLight.options({publisher: "08b002fb-12ea-4d0f-bf30-214e31ce17ac", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    
+            
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+    (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("2e2f10a0c2fb07d4ee43809457de5e3e");
+    </script>
+    <!-- end Mixpanel -->
+
+  <script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/getAllAppDefault.esi" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/checkOAuth.esi" type="text/javascript"></script><link href="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/buttons.css" type="text/css" rel="stylesheet"><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/analytics_002" type="text/javascript"></script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/analytics" type="text/javascript"></script></head>
+
+  <body id="blog" class="blog">
+
+  <header class="navbar-fixed-top card">
+  <div class="full-width hidden-xs" style="background-color: #f2f2f2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar nav-secondary">
+            <ul class="nav pull-right">
+                            <li class=""><a href="http://www.pubnub.com/company/">Company</a></li>
+              <li class=""><a href="http://www.pubnub.com/customers/">Customers</a></li>
+              <li class=""><a href="http://www.pubnub.com/press/">Press</a></li>
+              <li class=""><a href="http://www.pubnub.com/company/contact-us/">Contact</a></li>
+              <li class="underline"><a href="http://www.pubnub.com/blog/">Blog</a></li>
+              <li>
+                <form class="form-search" action="/search/">
+                  <input name="cx" value="016318228531359278205:tloy-ifg-ta" type="hidden">
+                  <input name="cof" value="FORID:9" type="hidden">
+                  <input name="ie" value="UTF-8" type="hidden">
+                  <input id="search-box" class="searchinput full-width" name="q" placeholder="Search" type="search">
+                  <button type="submit"><i class="fa fa-search"></i><span class="hidden">Search</span></button>
+                </form>
+              </li>
+              
+              <li id="loged-in"><div id="user-dropdown" class="dropdown-link"><a href="https://admin.pubnub.com/#user/221605"><i class="fa fa-user profile branded"></i><span class="branded"> t r</span></a><ul class="dropdown-list animate"><li><a href="https://admin.pubnub.com/#user/221605/app/223361/usage"><i class="fa fa-cog"></i><span>My First PubNub App</span></a></li></ul></div></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav class="navbar nav-main">
+          <div class="logo pull-left">
+            <a href="http://www.pubnub.com/" id="site-logo">PubNub</a>
+          </div>
+          <ul class="nav pull-right hidden-xs">
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/use-cases/">Use Cases<i class="fa fa-caret-down"></i></a>
+               <ul class="dropdown-list animate">
+                 <li>
+                   <a href="http://www.pubnub.com/use-cases/" style="padding-left: 13px;">
+                     <i class="fa fa-star"></i>
+                     <span>Use Cases</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/iot-network/" style="padding-left: 13px;">
+                     <i class="fa fa-plug"></i>
+                     <span>I<span style="text-transform:lowercase;">o</span>T Network </span>
+                   </a>
+                 </li>
+                 <li>
+                   </li><li>
+                     <a href="http://www.pubnub.com/customers/" style="padding-left: 13px;">
+                     <i class="fa fa-child"></i>
+                     Customers
+                     </a>
+                   </li>
+                 
+               </ul>
+               
+             </li>
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/how-it-works/">How it Works <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-list animate">
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/">
+                    <i class="fa fa-puzzle-piece" style="color:#ce1126 !important;font-size: 21px;position: relative;"></i>
+                    <span>How it Works</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/data-streams/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/data-streams.png" alt="data streams icon"></i>
+                    <span>Pub/Sub</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/presence/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/presence.png" alt="presence icon"></i>
+                    <span>Presence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/storage-and-playback/">
+                    <i class="push-down"><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/storage.png" alt="storage and playback icon"></i>
+                    <span>Storage &amp; Playback</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/stream-controller/">
+                    <i class="push-down"><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/SyndicateStreams.png" alt="Stream Controller"></i>
+                    <span>Stream Controller</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/mobile/">
+                    <i class="push-down"><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/mobile.png" alt="mobile icon"></i>
+                    Mobile Push Gateway
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/analytics/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/analytics.png" alt="analytics icon"></i>
+                    <span>Analytics</span>
+                  </a>
+                </li>
+                <li>
+                <a href="http://www.pubnub.com/how-it-works/data-sync/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/data-sync.png" alt="data sync icon"></i>
+                    <span>Data Sync</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/pam/">
+                    <i class="fa fa-key" style="color:#ce1126 !important;font-size: 21px;position: relative;top: 8px;"></i>
+                    <span>
+                      Access Management
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/security/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/security.png" alt="security icon"></i>
+                    <span>Security</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/network/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/network.png" alt="network icon"></i>
+                    Network
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/developers/">Developers <i class="fa fa-caret-down"></i></a>
+               <ul class="dropdown-list animate">
+                 <li>
+                   <a href="http://www.pubnub.com/developers/demos/">
+                     <i class="fa fa-file-code-o"></i>
+                     <span>Demos</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/community/">
+                     <i class="fa fa-users"></i>
+                     <span>Community</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/knowledge-base/">
+                     <i class="fa fa-graduation-cap"></i>
+                     <span>Knowledge Base</span>
+                   </a>
+                 </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/">
+                    <i class="fa fa-cogs"></i>
+                    <span>SDKs</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/console/">
+                    <i class="fa fa-terminal"></i>
+                    <span>Dev Console</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://support.pubnub.com/" target="_blank">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Support</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/documentation">
+                    <i class="fa fa-book"></i>
+                    <span>Docs</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/developers/tutorials/pub-sub">tutorials <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-list animate">
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/pub-sub">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/data-streams.png" alt="data streams icon"></i>
+                    <span>Pub/Sub</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/presence/">
+                    <i><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/presence.png" alt="presence icon"></i>
+                    <span>Presence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/storage-and-playback/">
+                    <i class="push-down"><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/storage.png" alt="storage and playback icon"></i>
+                    <span>Storage &amp; Playback</span>
+                  </a>
+                </li>
+                                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/access-manager/">
+                    <i class="fa fa-key" style="color:#ce1126 !important;font-size: 21px;position: relative;top: 8px;"></i>
+                    <span>
+                      Access Manager
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+          <ul class="nav pull-right visible-xs">
+            <li><a href="http://www.pubnub.com/how-it-works/">How it Works</a></li>
+            <li><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+            <li><a href="http://www.pubnub.com/developers/">Developers</a></li>
+            <li><a href="http://www.pubnub.com/in-action/">Use Cases</a></li>
+            <li><a href="http://www.pubnub.com/customers/">Customers</a></li>
+            <li><a href="http://www.pubnub.com/blog/">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<div id="alert_container" class="alert ">Join us at the IoT Stream Conference April 23rd @ Bently Reserve, San Francisco <a target="pn-chrome-tab" href="http://iot.streamconf.com/"> Learn more <i class="fa fa-chevron-right"></i></a></div>
+
+
+	<section class="no-padding">
+		<div class="container">
+
+			<div class="row overflow-hidden padding-bottom">
+      	<div class="col-sm-9 padding-top-20">
+
+										<article class="single">
+						<div class="article-header">
+              <h1 class="h2">Connect Arduino to PubNub in 2 Steps</h1>
+							<ul class="list-inline">
+                <li>By <a href="http://www.pubnub.com/blog/author/bhavana/" title="Posts by Bhavana Srinivas" rel="author">Bhavana Srinivas</a></li>
+                <li>Follow <a href="http://twitter.com/bhavana1110" target="_blank">@bhavana1110</a></li>
+                <li><time datetime="2014-06-25" pubdate="">June 25, 2014</time></li>              </ul>
+						</div>
+
+						<div class="article-content">
+							<p><a href="http://www.arduino.cc/">Arduino</a> is a microcontroller and development environment that can be used, just like <a href="http://www.pubnub.com/blog/raspberry-pi-to-pubnub-in-less-than-10-lines-of-code/">Raspberry Pi</a>,
+ to read information from its sensors and control other devices. 
+Programming on the Arduino is extremely simple, which has led to its 
+widespread use in interactive environments.</p>
+<p>As with the Raspberry Pi, it’s a great (and low cost) starting point 
+for experimenting with the world of embedded wearables and the&nbsp;<a href="http://www.pubnub.com/iot-network/">Internet of Things</a>.</p>
+<p style="text-align: center;"><a href="http://www.pubnub.com/blog/wp-content/uploads/2014/06/ConnectingArduino2.jpg"><img class="aligncenter size-full wp-image-5804" alt="Arduino" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/ConnectingArduino2.jpg" height="300" width="690"></a></p>
+<p>This blog walks you through the steps to connect an Arduino to the 
+PubNub Data Stream Network. This enables you to connect with a high 
+volume of other devices at a global scale and start sending and 
+receiving data between a wide variety of devices, including other 
+Arduino and Raspberry Pi devices. PubNub acts as your communication 
+layer for signaling and data transfer between embedded devices.</p>
+<p>You can find the <a href="https://gist.github.com/banasrini/0fcfa02301f4e11c0f50">Arduino PubNub extensions</a> here. For additional resources, check out the <a href="https://github.com/pubnub/arduino">PubNub Arduino documentation</a> page.</p>
+<h3>Basics of Connecting the Arduino to the PubNub Data Stream Network</h3>
+<p>Really, all it takes is two steps to get your Arduino up and running. Follow these steps to get connected:</p>
+<p><strong>STEP 1:</strong>&nbsp;Connect the Arduino to a monitor, keyboard, mouse and ethernet cable.<br>
+<strong></strong></p>
+<p><strong>STEP 2:</strong>&nbsp;You’ll need to <a href="http://www.pubnub.com/get-started/">sign up for a PubNub account</a>. Once you sign up, you can get your unique PubNub keys in the <a href="https://admin.pubnub.com/">PubNub Developer Portal</a>. Be sure to input your unique publish/subscribe keys!</p>
+<p>Open a new window and paste the following code.</p>
+<script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/d6ce21637b194a4a5def.js"></script><link rel="stylesheet" href="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist12671717" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-1-h-L1" rel="file-1-h-L1">1</span>
+            <span class="line-number" id="file-1-h-L2" rel="file-1-h-L2">2</span>
+            <span class="line-number" id="file-1-h-L3" rel="file-1-h-L3">3</span>
+            <span class="line-number" id="file-1-h-L4" rel="file-1-h-L4">4</span>
+            <span class="line-number" id="file-1-h-L5" rel="file-1-h-L5">5</span>
+            <span class="line-number" id="file-1-h-L6" rel="file-1-h-L6">6</span>
+            <span class="line-number" id="file-1-h-L7" rel="file-1-h-L7">7</span>
+            <span class="line-number" id="file-1-h-L8" rel="file-1-h-L8">8</span>
+            <span class="line-number" id="file-1-h-L9" rel="file-1-h-L9">9</span>
+            <span class="line-number" id="file-1-h-L10" rel="file-1-h-L10">10</span>
+            <span class="line-number" id="file-1-h-L11" rel="file-1-h-L11">11</span>
+            <span class="line-number" id="file-1-h-L12" rel="file-1-h-L12">12</span>
+            <span class="line-number" id="file-1-h-L13" rel="file-1-h-L13">13</span>
+            <span class="line-number" id="file-1-h-L14" rel="file-1-h-L14">14</span>
+            <span class="line-number" id="file-1-h-L15" rel="file-1-h-L15">15</span>
+            <span class="line-number" id="file-1-h-L16" rel="file-1-h-L16">16</span>
+            <span class="line-number" id="file-1-h-L17" rel="file-1-h-L17">17</span>
+            <span class="line-number" id="file-1-h-L18" rel="file-1-h-L18">18</span>
+            <span class="line-number" id="file-1-h-L19" rel="file-1-h-L19">19</span>
+            <span class="line-number" id="file-1-h-L20" rel="file-1-h-L20">20</span>
+            <span class="line-number" id="file-1-h-L21" rel="file-1-h-L21">21</span>
+            <span class="line-number" id="file-1-h-L22" rel="file-1-h-L22">22</span>
+            <span class="line-number" id="file-1-h-L23" rel="file-1-h-L23">23</span>
+            <span class="line-number" id="file-1-h-L24" rel="file-1-h-L24">24</span>
+            <span class="line-number" id="file-1-h-L25" rel="file-1-h-L25">25</span>
+            <span class="line-number" id="file-1-h-L26" rel="file-1-h-L26">26</span>
+            <span class="line-number" id="file-1-h-L27" rel="file-1-h-L27">27</span>
+            <span class="line-number" id="file-1-h-L28" rel="file-1-h-L28">28</span>
+            <span class="line-number" id="file-1-h-L29" rel="file-1-h-L29">29</span>
+            <span class="line-number" id="file-1-h-L30" rel="file-1-h-L30">30</span>
+            <span class="line-number" id="file-1-h-L31" rel="file-1-h-L31">31</span>
+            <span class="line-number" id="file-1-h-L32" rel="file-1-h-L32">32</span>
+            <span class="line-number" id="file-1-h-L33" rel="file-1-h-L33">33</span>
+            <span class="line-number" id="file-1-h-L34" rel="file-1-h-L34">34</span>
+            <span class="line-number" id="file-1-h-L35" rel="file-1-h-L35">35</span>
+            <span class="line-number" id="file-1-h-L36" rel="file-1-h-L36">36</span>
+            <span class="line-number" id="file-1-h-L37" rel="file-1-h-L37">37</span>
+            <span class="line-number" id="file-1-h-L38" rel="file-1-h-L38">38</span>
+            <span class="line-number" id="file-1-h-L39" rel="file-1-h-L39">39</span>
+            <span class="line-number" id="file-1-h-L40" rel="file-1-h-L40">40</span>
+            <span class="line-number" id="file-1-h-L41" rel="file-1-h-L41">41</span>
+            <span class="line-number" id="file-1-h-L42" rel="file-1-h-L42">42</span>
+            <span class="line-number" id="file-1-h-L43" rel="file-1-h-L43">43</span>
+            <span class="line-number" id="file-1-h-L44" rel="file-1-h-L44">44</span>
+            <span class="line-number" id="file-1-h-L45" rel="file-1-h-L45">45</span>
+            <span class="line-number" id="file-1-h-L46" rel="file-1-h-L46">46</span>
+            <span class="line-number" id="file-1-h-L47" rel="file-1-h-L47">47</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-1-h-LC1">#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>SPI.h<span class="pl-pds">&gt;</span></span>
+</div><div class="line" id="file-1-h-LC2">#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">&lt;</span>Ethernet.h<span class="pl-pds">&gt;</span></span>
+</div><div class="line" id="file-1-h-LC3">#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">"</span>string.h<span class="pl-pds">"</span></span>
+</div><div class="line" id="file-1-h-LC4">#<span class="pl-k">include</span> <span class="pl-s1"><span class="pl-pds">"</span>iotconnector.h<span class="pl-pds">"</span></span>
+</div><div class="line" id="file-1-h-LC5">&nbsp;
+</div><div class="line" id="file-1-h-LC6">byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+</div><div class="line" id="file-1-h-LC7">&nbsp;
+</div><div class="line" id="file-1-h-LC8"><span class="pl-st">char</span> pubkey[] = <span class="pl-s1"><span class="pl-pds">"</span>PUBLISH KEYS HERE<span class="pl-pds">"</span></span>;<span class="pl-st">char</span> subkey[] = <span class="pl-s1"><span class="pl-pds">"</span>SUBSCRIBE KEYS HERE<span class="pl-pds">"</span></span>;<span class="pl-st">char</span> channel[] = <span class="pl-s1"><span class="pl-pds">"</span>iotchannel<span class="pl-pds">"</span></span>;<span class="pl-st">char</span> uuid[] = <span class="pl-s1"><span class="pl-pds">"</span>Arduino<span class="pl-pds">"</span></span>;
+</div><div class="line" id="file-1-h-LC9">&nbsp;
+</div><div class="line" id="file-1-h-LC10">iotbridge arduino;
+</div><div class="line" id="file-1-h-LC11">&nbsp;
+</div><div class="line" id="file-1-h-LC12"><span class="pl-st">void</span> <span class="pl-en">initialize</span>(){
+</div><div class="line" id="file-1-h-LC13">        Serial.<span class="pl-s3">begin</span>(<span class="pl-c1">9600</span>);
+</div><div class="line" id="file-1-h-LC14">	Serial.<span class="pl-s3">println</span>(<span class="pl-s1"><span class="pl-pds">"</span>Serial set up<span class="pl-pds">"</span></span>);
+</div><div class="line" id="file-1-h-LC15">&nbsp;
+</div><div class="line" id="file-1-h-LC16">	<span class="pl-k">while</span> (!Ethernet.<span class="pl-s3">begin</span>(mac)) {
+</div><div class="line" id="file-1-h-LC17">		Serial.<span class="pl-s3">println</span>(<span class="pl-s1"><span class="pl-pds">"</span>Ethernet setup error<span class="pl-pds">"</span></span>);
+</div><div class="line" id="file-1-h-LC18">		<span class="pl-s3">delay</span>(<span class="pl-c1">1000</span>);
+</div><div class="line" id="file-1-h-LC19">	}
+</div><div class="line" id="file-1-h-LC20">	Serial.<span class="pl-s3">println</span>(<span class="pl-s1"><span class="pl-pds">"</span>Ethernet set up<span class="pl-pds">"</span></span>);
+</div><div class="line" id="file-1-h-LC21">}
+</div><div class="line" id="file-1-h-LC22">&nbsp;
+</div><div class="line" id="file-1-h-LC23"><span class="pl-st">void</span> <span class="pl-en">do_something</span>(String value){
+</div><div class="line" id="file-1-h-LC24">          Serial.<span class="pl-s3">println</span>(<span class="pl-s1"><span class="pl-pds">"</span>in the callback<span class="pl-pds">"</span></span>);
+</div><div class="line" id="file-1-h-LC25">          Serial.<span class="pl-s3">println</span>(value);
+</div><div class="line" id="file-1-h-LC26">        }
+</div><div class="line" id="file-1-h-LC27"><span class="pl-st">void</span> <span class="pl-en">setup</span>()
+</div><div class="line" id="file-1-h-LC28">{  
+</div><div class="line" id="file-1-h-LC29">	<span class="pl-s3">initialize</span>();
+</div><div class="line" id="file-1-h-LC30">	arduino.<span class="pl-s3">init</span>( pubkey, subkey, uuid);       
+</div><div class="line" id="file-1-h-LC31">}
+</div><div class="line" id="file-1-h-LC32">&nbsp;
+</div><div class="line" id="file-1-h-LC33"><span class="pl-st">void</span> <span class="pl-en">loop</span>()
+</div><div class="line" id="file-1-h-LC34">{      
+</div><div class="line" id="file-1-h-LC35">        String returnmessage;
+</div><div class="line" id="file-1-h-LC36">	Ethernet.<span class="pl-s3">maintain</span>();
+</div><div class="line" id="file-1-h-LC37">        
+</div><div class="line" id="file-1-h-LC38">        <span class="pl-c">//Publish</span>
+</div><div class="line" id="file-1-h-LC39">        arduino.<span class="pl-s3">send</span>(channel,<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-cce">\"</span>Hey There<span class="pl-cce">\"</span><span class="pl-pds">"</span></span>);
+</div><div class="line" id="file-1-h-LC40">&nbsp;
+</div><div class="line" id="file-1-h-LC41">        <span class="pl-c">//Subscribe </span>
+</div><div class="line" id="file-1-h-LC42">        returnmessage = arduino.<span class="pl-s3">connect</span>(channel); 
+</div><div class="line" id="file-1-h-LC43">        
+</div><div class="line" id="file-1-h-LC44">        <span class="pl-c">//callback function of sorts, to work with the received message</span>
+</div><div class="line" id="file-1-h-LC45">        <span class="pl-s3">do_something</span>(returnmessage); 
+</div><div class="line" id="file-1-h-LC46">	Serial.<span class="pl-s3">println</span>();
+</div><div class="line" id="file-1-h-LC47">}
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def/raw/1.h" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def#file-1-h">1.h</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>The above code lets you set the following :</p>
+<ul>
+<li>publish key using “pubkey”</li>
+<li>subscribe key using “subkey”</li>
+<li>UUID using “uuid”</li>
+<li>channel you wish to subscribe and publish to using “channel”</li>
+</ul>
+<p>For all of you who are familiar with Arduino, you will notice that 
+this is in fact only a few additional lines of code in loop(). The 
+remaining code sets up the Ethernet connection to the Arduino.</p>
+<p>The keys lines of code are just three lines:</p>
+<ul>
+<li><strong>arduino.init()</strong>&nbsp;that lets you initialize variables</li>
+<li><strong>arduino.send()</strong>&nbsp;that lets you send a message over the specified channel</li>
+<li><strong>arduino.connect()</strong>&nbsp;that lets you subscribe to a channel to receive messages</li>
+</ul>
+<p>We create an instance of the iotbridge called “arduino” and we can use the SEND and CONNECT methods belonging to that class.</p>
+<p><strong>SEND</strong>:&nbsp;This invokes the publish() API to send any message over a desired channel.</p>
+<script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/d6ce21637b194a4a5def_003.js"></script><link rel="stylesheet" href="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist12671717" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-2-h-L1" rel="file-2-h-L1">1</span>
+            <span class="line-number" id="file-2-h-L2" rel="file-2-h-L2">2</span>
+            <span class="line-number" id="file-2-h-L3" rel="file-2-h-L3">3</span>
+            <span class="line-number" id="file-2-h-L4" rel="file-2-h-L4">4</span>
+            <span class="line-number" id="file-2-h-L5" rel="file-2-h-L5">5</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-2-h-LC1"><span class="pl-st">bool</span> <span class="pl-en">iotbridge::send</span>(<span class="pl-s">const</span> <span class="pl-st">char</span> *channel, <span class="pl-s">const</span> <span class="pl-st">char</span> *message){
+</div><div class="line" id="file-2-h-LC2">  EthernetClient *client;
+</div><div class="line" id="file-2-h-LC3">  client = PubNub.<span class="pl-s3">publish</span>(channel,message);
+</div><div class="line" id="file-2-h-LC4">  <span class="pl-k">return</span> client;
+</div><div class="line" id="file-2-h-LC5">}
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def/raw/2.h" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def#file-2-h">2.h</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p><strong>CONNECT</strong>:&nbsp;This invokes the subscribe() API to listen for messages from other embedded devices connected to the same channel.</p>
+<p><em><strong>NOTE:</strong>&nbsp;The call back function receive is 
+invoked when subscribe runs. Connect() will block on subscribe, waiting 
+for a message to be sent to the device. You can write your own simple 
+task scheduler and bounce between tasks according to their timing 
+requirements.</em></p>
+<script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/d6ce21637b194a4a5def_002.js"></script><link rel="stylesheet" href="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist12671717" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-3-h-L1" rel="file-3-h-L1">1</span>
+            <span class="line-number" id="file-3-h-L2" rel="file-3-h-L2">2</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-3-h-LC1">String <span class="pl-en">iotbridge::connect</span>(<span class="pl-s">const</span> <span class="pl-st">char</span> *channel){
+</div><div class="line" id="file-3-h-LC2">  PubSubClient *pclient = PubNub.<span class="pl-s3">subscribe</span>(channel);
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def/raw/3.h" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/d6ce21637b194a4a5def#file-3-h">3.h</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>You can customize the channels you publish/subscribe to, the UUID you
+ assume and also the messages you send by just changing the above 
+fields.</p>
+<p>And huzzah!&nbsp;Thats it! You can now talk Arduino to any other 
+device or application subscribing/publishing to the same channel.</p>
+						</div>
+
+						<div class="article-footer clearfix">
+              <p>
+                Read More: <a href="http://www.pubnub.com/blog/tag/arduino/" rel="tag">Arduino</a>, <a href="http://www.pubnub.com/blog/tag/internet-of-things-2/" rel="tag">Internet of Things</a>, <a href="http://www.pubnub.com/blog/tag/iot-consumer-electronics-connected-dev/" rel="tag">IoT Consumer Electronics Connected Dev</a>, <a href="http://www.pubnub.com/blog/tag/wearables/" rel="tag">Wearables</a>              </p>
+							<p class="pull-left">
+								Categories: <a href="http://www.pubnub.com/blog/category/demos-tutorials-and-how-tos/" title="View all posts in Tutorials and Demos" rel="category tag">Tutorials and Demos</a>							</p>
+              <ul class="list-inline pull-right">
+                <li><span st_processed="yes" class="st_facebook_large" st_title="Connect Arduino to PubNub in 2 Steps" st_url="http://www.pubnub.com/blog/connect-arduino-to-pubnub-in-2-steps/" displaytext="Facebook"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/facebook_32.png&quot;);" class="stLarge"></span></span></span></li>
+                <li><span st_processed="yes" class="st_twitter_large" st_title="Connect Arduino to PubNub in 2 Steps" st_url="http://www.pubnub.com/blog/connect-arduino-to-pubnub-in-2-steps/" displaytext="Tweet"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/twitter_32.png&quot;);" class="stLarge"></span></span></span></li>
+                <li><span st_processed="yes" class="st_googleplus_large" st_title="Connect Arduino to PubNub in 2 Steps" st_url="http://www.pubnub.com/blog/connect-arduino-to-pubnub-in-2-steps/" displaytext="Google +"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/googleplus_32.png&quot;);" class="stLarge"></span></span></span></li>
+              </ul>
+						</div>
+					</article>
+
+					
+					
+					      	</div>
+      	<div class="col-sm-3 sidebar padding-top-10">
+					<h4><img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/pubnub.png" alt="PubNub" width="100"></h4>
+
+<p>
+  The PubNub Data Stream Network powers thousands of apps, streaming 50 billion messages to 150 million devices a month.
+</p>
+<p>
+  <a href="http://www.pubnub.com/" class="btn btn-primary">Learn More</a>
+</p>
+<br>
+
+<h5>Topics</h5>
+<ul class="list-unstyled list-underlines">
+  <li><a href="http://www.pubnub.com/blog/category/case-studies/">Customer Case Studies  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/support-and-faqs/">FAQs, Tips and Tricks  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/news-and-around-pubnub/">News and Around PubNub  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/uncategorized/">Other  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/news-announcements-and-around-pubnub/">PubNub News  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/pubnub-product-features/">Realtime Building Blocks  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/realtime-technology/">Realtime Technology  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/talks/">Talks and Presentations  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/demos-tutorials-and-how-tos/">Tutorials and Demos  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/use-cases/">Use Cases  »</a></li>
+
+</ul>
+
+<h5 class="margin-top">Tags</h5>
+<ul class="list-unstyled list-underlines">
+  <li><a href="http://www.pubnub.com/blog/tag/chat">Chat</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/ios">iOS</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/android">Android</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/javascript">JavaScript</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/internet-of-things-2">Internet of Things</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/tag/webrtc">WebRTC</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/security">Security</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/maps-and-geolocation">Geolocation</a></li>
+</ul>
+
+<h5 class="margin-top">Trending Blog Posts</h5>
+<ul class="list-unstyled list-underlines">
+
+  <li><a href="http://www.pubnub.com/blog/creating-a-polymer-chat-app-with-material-design/">Creating a Polymer Chat App with Material Design</a></li>
+  
+  <li><a href="http://www.pubnub.com/blog/how-to-convert-your-javascript-app-into-an-android-app-with-phonegap/">Converting Your JavaScript App to an Android App w/ PhoneGap</a></li>
+  
+  <li><a href="http://www.pubnub.com/blog/build-real-time-chat-10-lines-code/">Build Real-time Chat Apps in 10 Lines of Code</a></li>
+  </ul>
+
+<h5 class="margin-top">Subscribe to Our Newsletter</h5>
+<ul class="list-unstyled">
+
+  <li>
+    <form class="form-general" action="http://www2.pubnub.com/l/28622/2014-10-02/c97vt" method="post">
+      <div class="row">
+        <div class="col-sm-12"><input name="email" placeholder="Your Email" type="email"></div>
+        <div class="col-sm-12"><input value="Sign Up" class="card btn btn-primary width-100" type="submit"></div>
+      </div>
+    </form>
+  </li>
+</ul>
+
+
+<nav class="nav-social padding-top">
+  <ul class="nav">
+    <li><a href="http://twitter.com/PubNub" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="http://www.linkedin.com/company/pubnub" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="http://www.facebook.com/PubNub" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="http://plus.google.com/116291363909949130218/posts" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+    <li><a href="http://www.pubnub.com/blog/feed/" target="_blank"><i class="fa fa-rss"></i></a></li>
+    <li><a href="http://vimeo.com/pubnub" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+    <li><a href="http://www.youtube.com/pubnubtv" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+  </ul>
+</nav>
+      	</div>
+			</div>
+
+
+		</div>
+	</section>
+
+
+<section class="red"><div class="container">
+    <div class="col-sm-12 text-center">
+        <h4 class="text-thin">
+            <span class="break">Start Building</span>
+            Realtime Apps Now!
+        </h4>
+    </div>
+    <div class="col-sm-12 text-center">
+        <a href="http://www.pubnub.com/get-started/#get-started" id="footer-cta" class="btn btn-white btn-modal btn-large text-red text-center brt">
+            Get Started
+        </a>
+    </div>
+</div></section>
+    <footer>
+      <div class="container">
+
+        <div class="row text-center">
+
+          <div class="col-sm-9 clearfix">
+            <nav class="nav-footer">
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/how-it-works/">How It Works</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/data-streams/">Data Streams</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/presence/">Presence</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/storage-and-playback/">Storage &amp; Playback</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/mobile/">Mobile Push Gateway</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/analytics/">Analytics</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/data-sync/">Data Sync</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/security/">Security</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/network/">Network</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/developers/">Developers</a></li>
+                <li><a href="http://www.pubnub.com/developers/quick-start/">Quick Start</a></li>
+                <li><a href="http://www.pubnub.com/docs/javascript/javascript-sdk.html">Docs</a></li>
+                <li><a href="http://www.pubnub.com/console/">Dev Console</a></li>
+                <li><a href="http://www.pubnub.com/community/">Community</a></li>
+                <li><a href="https://help.pubnub.com/home" target="_blank">Support</a></li>
+                <li><a href="http://www.pubnub.com/developers/demos/">Demos</a></li>
+                <li><a href="http://www.pubnub.com/technology-guides/">Technology Guides</a></li>
+                <li><a href="http://www.pubnub.com/docs/javascript/tutorial/data-push.html">Tutorials</a></li>
+                <li><a href="http://www.pubnub.com/websockets/">Websockets</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/customers/">Customers</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/company/">Company</a></li>
+                <li><a href="http://www.pubnub.com/company/team/">Team</a></li>
+                <li><a href="http://www.pubnub.com/company/leadership/">Leadership</a></li>
+                <li><a href="http://www.pubnub.com/press/">Press &amp; News</a></li>
+                <li><a href="http://www.pubnub.com/events/">Events</a></li>
+                <li><a href="http://www.pubnub.com/company/careers/">Careers</a></li>
+                <li><a href="http://www.pubnub.com/company/contact-us/">Contact Us</a></li>
+                <li><a href="#pubnub-music-video" class="btn-modal">Music Video</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/blog/">Blog</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-sm-3">
+            <nav class="nav-social pull-right">
+              <ul class="nav">
+                <li><a href="http://www.pubnub.com/community" target="_blank"><i class="fa fa-users"></i></a></li>
+                <li><a href="http://twitter.com/PubNub" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.linkedin.com/company/pubnub" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="http://www.facebook.com/PubNub" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://plus.google.com/116291363909949130218/posts" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="http://www.pubnub.com/blog/feed/" target="_blank"><i class="fa fa-rss"></i></a></li>
+                <li><a href="http://vimeo.com/pubnub" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+                <li><a href="https://www.youtube.com/c/Pubnub" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </nav>
+            <nav class="nav-footer pull-right ">
+              <ul class="nav text-right">
+                <li><small>© 2009-2015 PubNub, Inc.</small></li>
+                <li><a href="http://www.pubnub.com/terms-and-conditions/">Terms &amp; Conditions</a></li>
+                <li><a href="http://www.pubnub.com/privacy-policy/">Privacy Policy</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+
+    <div id="get-started" class="modal-container">
+      <div class="form-wrap form-wrap-modal hide-labels">
+        <a href="http://www.pubnub.com/" class="close"><i class="fa fa-times-circle"></i></a>
+        <h3>Get Started</h3>
+        <div id="error-codes" class="alert alert-danger" style="display:none;"></div>
+<form id="sign-up-form-partial" action="https://admin.pubnub.com/api/users" method="POST" class="form-general">
+        <label for="first-name">First Name</label>
+        <input name="first" id="first-name" placeholder="First Name *" required="" type="text">
+        <label for="last-name">Last Name</label>
+        <input name="last" id="last-name" placeholder="Last Name *" required="" type="text">
+        <label for="company">Company</label>
+        <input name="company" id="company" placeholder="Company *" required="" type="text">
+        <label for="phone">Phone Number</label>
+        <input name="phone" id="phone" placeholder="Phone *" required="" type="text">
+        <label for="email-2">Email</label>
+        <input value="a3992960@drdrb.com" name="email" id="email-2" placeholder="Email *" required="" type="email">
+        <label for="password">Password</label>
+        <input name="password" id="password" placeholder="Password *" required="" type="password">
+        <select style="color:#666;-webkit-box-shadow: inset 0 0 4px 0 rgba(0,0,0,0.3);
+        box-shadow: inset 0 0 4px 0 rgba(0,0,0,0.3);-webkit-transition: all 0.15s ease-in-out; transition: all 0.15s ease-in-out;background : #fff;height : 41px;border: 1px solid #efefef;" name="customer_selected_use_case" class="width-100 padding-10 margin-bottom-10">
+          <option value="" disabled="disabled" selected="selected">INDUSTRY</option>          
+          <option value="Chat/Social">Chat/Social</option>
+          <option value="Financial Data Streams">Financial Data Streams</option>
+          <option value="Multi-player Games">Multi-player Games</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Transportation"> Transportation</option>
+          <option value="Internet of Things">Internet of Things</option>
+          <option value="WebRTC">WebRTC</option>
+          <option value="Other">Other</option>
+        </select>
+        <input value="1" name="xsite" type="hidden">        
+        <p>By clicking <span id="create_account_text">Create Free Account</span>, you agree to <a href="http://www.pubnub.com/terms-and-conditions/" target="_blank">PubNub's terms and conditions</a>.</p>
+        <input value="Create Free Account" id="create_account_btn" class="btn btn-primary" type="submit">
+        <div id="utms">
+
+            
+            
+                <input id="utm_source" name="utm_source" value="" type="hidden">
+
+            
+                <input id="utm_medium" name="utm_medium" value="" type="hidden">
+
+            
+                <input id="utm_content" name="utm_content" value="" type="hidden">
+
+            
+                <input id="utm_campaign" name="utm_campaign" value="" type="hidden">
+
+            
+                <input id="utm_keyword" name="utm_keyword" value="" type="hidden">
+
+            
+        </div>
+</form>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+    <div id="pubnub-music-video" class="modal-container">
+      <div class="form-wrap form-wrap-modal hide-labels">
+        <a href="http://www.pubnub.com/" class="close"><i class="fa fa-times-circle"></i></a>
+        <iframe src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/20048255.htm" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="100%" width="100%"></iframe>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+    <script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/pubnub-3.js"></script>
+        <script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/main.js"></script>
+        <script type="text/javascript">
+      mixpanel.track('Page Viewed', {
+        'page' : window.location.pathname
+      });
+    </script>
+    
+    
+    
+
+    <div id="loading">
+      <div class="mask"></div>
+      <div class="indication">
+        <img src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/loading.gif">
+        <h3 class="text-red">Loading...</h3>
+      </div>
+    </div>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 1009365105;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/conversion.js">
+  </script><iframe name="google_conversion_frame" title="Google conversion frame" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/a.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" frameborder="0" height="13" width="300">&lt;img
+ height="1" width="1" border="0" alt="" 
+src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1009365105/?frame=0&amp;random=1425386845550&amp;cv=7&amp;fst=1425386845550&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1024&amp;u_w=1280&amp;u_ah=984&amp;u_aw=1280&amp;u_cd=24&amp;u_his=4&amp;u_tz=60&amp;u_java=true&amp;u_nplug=19&amp;u_nmime=102&amp;frm=0&amp;url=http%3A//www.pubnub.com/blog/connect-arduino-to-pubnub-in-2-steps/&amp;ref=http%3A//www.google.it/url%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CCIQFjAA%26url%3Dhttp%253A%252F%252Fwww.pubnub.com%252Fblog%252Fconnect-arduino-to-pubnub-in-2-steps%252F%26ei%3DTpf1VMKqAYSGzAOIrIKoCA%26usg%3DAFQjCNFXId7HeT695jeEHp3eHWwRtySfkw%26sig2%3Dy9dFDAL58P-aT_C5bKH0wA%26bvm%3Dbv.87269000%2Cd.bGQ&amp;vis=1"
+ /&gt;</iframe>
+  <noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1009365105/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+  </noscript>
+  <script type="text/javascript">var bf_url="pubnub";(function(){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//d2sdf28wg0skh3.cloudfront.net/bf.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script><script src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/apps" type="text/javascript"></script>
+  
+
+<div style="position: absolute; top: -1999px; left: -1988px;" id="stcpDiv">ShareThis Copy and Paste</div><iframe style="display:none;" scrolling="no" src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/getSegment.htm" name="stSegmentFrame" id="stSegmentFrame" frameborder="0" height="0px" width="0px"></iframe><div style="display: none;" class="stwrapper stwrapper4x" id="stwrapper"><iframe src="Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub_files/index.htm" scrolling="no" name="stLframe" class="stLframe" id="stLframe" allowtransparency="true" frameborder="0"></iframe></div><div onclick="javascript:stWidget.closeWidget();" id="stOverlay"></div></body></html>
