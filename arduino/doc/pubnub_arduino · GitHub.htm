@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>pubnub/arduino · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="pubnub/arduino" name="twitter:title"><meta content="arduino - The Official PubNub Arduino-based API!" name="twitter:description"><meta content="https://avatars2.githubusercontent.com/u/297109?v=3&amp;s=400" name="twitter:image:src">
+      <meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars2.githubusercontent.com/u/297109?v=3&amp;s=400" property="og:image"><meta content="pubnub/arduino" property="og:title"><meta content="https://github.com/pubnub/arduino" property="og:url"><meta content="arduino - The Official PubNub Arduino-based API!" property="og:description">
+      <meta name="browser-stats-url" content="/_stats">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="9E66A205:41F9:6831CE3:54F5BBE9" name="octolytics-dimension-request_id">
+    
+    <meta content="Rails, view, files#disambiguate" name="analytics-event">
+
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="B99UsTBRw6SdqSVR+U3t96B5/3voC/7W9wpMfCBlOOJ9tpCDwEw5xTrjaBkLK3//ni/BlE9tF4fdJ/dfSA0i6A==" name="csrf-token">
+
+    <link href="pubnub_arduino%20%C2%B7%20GitHub_files/github-1b7a0fc5ad338a0e75ff6190dd28e8716a22b8155b28f6cdd2e57.css" media="all" rel="stylesheet">
+    <link href="pubnub_arduino%20%C2%B7%20GitHub_files/github2-27099ff875724b3da49fac6911968f783aa96ed08970c77185d9.css" media="all" rel="stylesheet">
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="c5047726d65bb3331ea477ac257a9267">
+
+      
+  <meta name="description" content="arduino - The Official PubNub Arduino-based API!">
+  <meta name="go-import" content="github.com/pubnub/arduino git https://github.com/pubnub/arduino.git">
+
+  <meta content="297109" name="octolytics-dimension-user_id"><meta content="pubnub" name="octolytics-dimension-user_login"><meta content="8563302" name="octolytics-dimension-repository_id"><meta content="pubnub/arduino" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="8563302" name="octolytics-dimension-repository_network_root_id"><meta content="pubnub/arduino" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/pubnub/arduino/commits/master.atom" rel="alternate" title="Recent Commits to arduino:master" type="application/atom+xml">
+
+  <script src="pubnub_arduino%20%C2%B7%20GitHub_files/api.js" async="" type="text/javascript"></script></head>
+
+
+  <body class="logged_out  env-production windows vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+        
+        <div class="header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions" role="navigation">
+        <a class="button primary" href="https://github.com/join" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+      <a class="button" href="https://github.com/login?return_to=%2Fpubnub%2Farduino" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+    </div>
+
+    <div class="site-search repo-scope js-site-search" role="search">
+      <form accept-charset="UTF-8" action="/pubnub/arduino/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/pubnub/arduino/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+  <input class="js-site-search-field is-clearable" data-hotkey="s" name="q" placeholder="Search" data-global-scope-placeholder="Search GitHub" data-repo-scope-placeholder="Search" tabindex="1" autocapitalize="off" type="text">
+  <div class="scope-badge">This repository</div>
+</form>
+    </div>
+
+      <ul class="header-nav left" role="navigation">
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/explore" data-ga-click="(Logged out) Header, go to explore, text:explore">Explore</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/features" data-ga-click="(Logged out) Header, go to features, text:features">Features</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://enterprise.github.com/" data-ga-click="(Logged out) Header, go to enterprise, text:enterprise">Enterprise</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/blog" data-ga-click="(Logged out) Header, go to blog, text:blog">Blog</a>
+          </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fpubnub%2Farduino" class="minibutton with-count tooltipped tooltipped-n" aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <span class="octicon octicon-eye"></span>
+    Watch
+  </a>
+  <a class="social-count" href="https://github.com/pubnub/arduino/watchers">
+    49
+  </a>
+
+
+  </li>
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fpubnub%2Farduino" class="minibutton with-count tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/pubnub/arduino/stargazers">
+      33
+    </a>
+
+  </li>
+
+    <li>
+      <a href="https://github.com/login?return_to=%2Fpubnub%2Farduino" class="minibutton with-count tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="https://github.com/pubnub/arduino/network" class="social-count">
+        16
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/pubnub" class="url fn" itemprop="url" rel="author"><span itemprop="title">pubnub</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/pubnub/arduino" class="js-current-repository" data-pjax="#js-repo-pjax-container">arduino</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+        <div class="repository-sidebar clearfix">
+            
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders" role="navigation" data-pjax="#js-repo-pjax-container" data-issue-count-url="/pubnub/arduino/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="https://github.com/pubnub/arduino" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /pubnub/arduino">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="https://github.com/pubnub/arduino/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /pubnub/arduino/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="counter">0</span>
+
+          <img alt="" class="mini-loader" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+      <a href="https://github.com/pubnub/arduino/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /pubnub/arduino/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+          <span class="counter">0</span>
+
+          <img alt="" class="mini-loader" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+</a>    </li>
+
+
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="https://github.com/pubnub/arduino/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /pubnub/arduino/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="https://github.com/pubnub/arduino/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /pubnub/arduino/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+</a>    </li>
+  </ul>
+
+
+</nav>
+
+              <div class="only-with-full-nav">
+                  
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/pubnub/arduino.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/pubnub/arduino" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+<p class="clone-options">You can clone with
+  <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a> or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+  <a href="http://windows.github.com/" class="minibutton sidebar-button" title="Save pubnub/arduino to your computer and use it in GitHub Desktop." aria-label="Save pubnub/arduino to your computer and use it in GitHub Desktop.">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+                <a href="https://github.com/pubnub/arduino/archive/master.zip" class="minibutton sidebar-button" aria-label="Download the contents of pubnub/arduino as a zip file" title="Download the contents of pubnub/arduino as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+<span id="js-show-full-navigation"></span>
+
+<div class="repository-meta js-details-container ">
+    <div class="repository-description">
+      The Official PubNub Arduino-based API!
+    </div>
+
+
+
+</div>
+
+<div class="overall-summary overall-summary-bottomless">
+
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax="" href="https://github.com/pubnub/arduino/commits/master">
+            <span class="octicon octicon-history"></span>
+            <span class="num text-emphasized">
+              30
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax="" href="https://github.com/pubnub/arduino/branches">
+          <span class="octicon octicon-git-branch"></span>
+          <span class="num text-emphasized">
+            1
+          </span>
+          branch
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax="" href="https://github.com/pubnub/arduino/releases">
+          <span class="octicon octicon-tag"></span>
+          <span class="num text-emphasized">
+            0
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+        
+  <a href="https://github.com/pubnub/arduino/graphs/contributors">
+    <span class="octicon octicon-organization"></span>
+    <span class="num text-emphasized">
+      5
+    </span>
+    contributors
+  </a>
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="https://github.com/pubnub/arduino/search?l=cpp">
+                <span class="color-block language-color" style="background-color:#f34b7d;"></span>
+                <span class="lang">C++</span>
+                <span class="percent">51.9%</span>
+              </a>
+          </li>
+          <li>
+              <a href="https://github.com/pubnub/arduino/search?l=arduino">
+                <span class="color-block language-color" style="background-color:#bd79d1;"></span>
+                <span class="lang">Arduino</span>
+                <span class="percent">48.1%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="tooltipped tooltipped-s" aria-label="Show language statistics">
+    <a href="#" class="repository-lang-stats-graph js-toggle-lang-stats" style="background-color:#bd79d1">
+  <span class="language-color" style="width:51.9%; background-color:#f34b7d;" itemprop="keywords">C++</span><span class="language-color" style="width:48.1%; background-color:#bd79d1;" itemprop="keywords">Arduino</span>
+    </a>
+  </div>
+
+
+
+<div class="file-navigation in-mid-page">
+  <a href="https://github.com/pubnub/arduino/find/master" class="js-show-file-finder minibutton empty-icon tooltipped tooltipped-s right" data-pjax="" data-hotkey="t" aria-label="Quickly jump between files">
+    <span class="octicon octicon-list-unordered"></span>
+  </a>
+    <a href="https://github.com/pubnub/arduino/compare" aria-label="Compare, review, create a pull request" class="minibutton primary tooltipped tooltipped-s left compare-button" data-pjax="" data-ga-click="Repository, go to compare view, location:repo overview; icon:git-compare">
+      <span class="octicon octicon-git-compare"></span>
+    </a>
+
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="minibutton select-menu-button js-menu-target css-truncate" data-hotkey="w" data-master-branch="master" data-ref="master" title="master" role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="" aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags" type="text">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open selected" href="https://github.com/pubnub/arduino/tree/master" data-name="master" data-skip-pjax="true" rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="master">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="breadcrumb"><span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/pubnub/arduino" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">arduino</span></a></span></span><span class="separator">/</span><a aria-label="You must be signed in to make or propose changes" class="octicon-button disabled tooltipped tooltipped-e" href="#"><span class="octicon octicon-plus"></span></a></div>
+</div>
+
+
+
+  
+  <div class="commit commit-tease js-details-container">
+    <p class="commit-title ">
+        <a href="https://github.com/pubnub/arduino/commit/4dd6a913f40425bec6fe64e41277441906e5dd5b" class="message" data-pjax="true" title="Merge pull request #2 from robertinant/master
+
+Make AVR specific code conditional">Merge pull request</a> <a href="https://github.com/pubnub/arduino/pull/2" class="issue-link" title="Make AVR specific code conditional">#2</a> <a href="https://github.com/pubnub/arduino/commit/4dd6a913f40425bec6fe64e41277441906e5dd5b" class="message" data-pjax="true" title="Merge pull request #2 from robertinant/master
+
+Make AVR specific code conditional">from robertinant/master</a>
+        <span class="hidden-text-expander inline"><a href="#" class="js-details-target">…</a></span>
+    </p>
+      <div class="commit-desc"><pre>Make AVR specific code conditional</pre></div>
+    <div class="commit-meta">
+      <button aria-label="Copy SHA" class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="4dd6a913f40425bec6fe64e41277441906e5dd5b" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+      <a href="https://github.com/pubnub/arduino/commit/4dd6a913f40425bec6fe64e41277441906e5dd5b" class="sha-block" data-pjax="">latest commit <span class="sha">4dd6a913f4</span></a>
+
+      <div class="authorship">
+        <img alt="vveljko" class="avatar" data-user="8090117" src="pubnub_arduino%20%C2%B7%20GitHub_files/8090117.png" height="20" width="20">
+        <span class="author-name"><a href="https://github.com/vveljko" rel="contributor">vveljko</a></span>
+        authored <time title="13 ott 2014 15:25 CEST" class="updated" datetime="2014-10-13T13:25:57Z" is="relative-time">on 13 Oct 2014</time>
+
+      </div>
+    </div>
+  </div>
+
+  
+<div class="file-wrap">
+
+  <table class="files" data-pjax="">
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><span class="octicon octicon-alert"></span></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/tree/master/examples" class="js-directory-link" id="bfebe34154a0dfd9fc7b447fc9ed74e9-bf0ce84def5ac12826fc2d46b6348de9c4afffa3" title="examples">examples</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/4cdd0275b3d8822ccd48884b1b2a5c1c2d1326c9" class="message" data-pjax="true" title="PubNub::set_uuid(): New call, plus usage example in PubNubSubscriber">PubNub::set_uuid(): New call, plus usage example in PubNubSubscriber</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="2 giu 2014 01:21 CEST" datetime="2014-06-01T23:21:45Z" is="time-ago">9 months ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/blob/master/.gitignore" class="js-directory-link" id="a084b794bc0759e7a6b77810e01874f2-0331bbbddbdebeee16d79d2da12112d9291559c3" title=".gitignore">.gitignore</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/8ff27ba480d96b9c0e5fe4943cedef115c938158" class="message" data-pjax="true" title="Initial commit">Initial commit</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="4 mar 2013 20:43 CET" datetime="2013-03-04T19:43:21Z" is="time-ago">2 years ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/blob/master/LICENSE" class="js-directory-link" id="9879d6db96fd29134fc802214163b95a-3efa3922e32318ba8ea249c6826a54193742fa37" title="LICENSE">LICENSE</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/bb22c063997caa837c551b9cfb1520133b3e75a8" class="message" data-pjax="true" title="Create LICENSE">Create LICENSE</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="27 mar 2013 20:24 CET" datetime="2013-03-27T19:24:12Z" is="time-ago">2 years ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/blob/master/PubNub.cpp" class="js-directory-link" id="45c0faa4d0ecb3837f668fcc4867c485-c4630fdfeab282ccb14cf4bea796bf11f1c9fee9" title="PubNub.cpp">PubNub.cpp</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/e761112a1e3578e1815dc941aa425e5e7d15cb2e" class="message" data-pjax="true" title="Make AVR specific code conditional
+
+- This patch check for the AVR defined symbol __AVR and conditionally
+includes avr/pgmspace.h depending on it.
+- A define for strncasecmp_P set to strncasecmp was added for non-avr platforms to take
+care of the missing function.">Make AVR specific code conditional</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="8 ott 2014 18:12 CEST" datetime="2014-10-08T16:12:38Z" is="time-ago">5 months ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/blob/master/PubNub.h" class="js-directory-link" id="97170832a76fc588ccc540a8e1685fd9-8d04dcf28b67d2ca283333bdd872d68b75c1cf3b" title="PubNub.h">PubNub.h</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/9674154c2bdeac471bb7a4076926f656ec5fe134" class="message" data-pjax="true" title="PubNub::_request_bh(): Append pnsdk query parameter to URL">PubNub::_request_bh(): Append pnsdk query parameter to URL</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="1 set 2014 00:26 CEST" datetime="2014-08-31T22:26:47Z" is="time-ago">6 months ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="pubnub_arduino%20%C2%B7%20GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/pubnub/arduino/blob/master/README.md" class="js-directory-link" id="04c6e90faac2675aa89e2176d2eec7d8-8d56f5b3c78d24e9810cc2378a08fc998958fbd2" title="README.md">README.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/pubnub/arduino/commit/d6cdb980342bbd367520ead51c694aea1aaf7d37" class="message" data-pjax="true" title="README.md Supported Hardware: Grammar/phrasing tweaks">README.md Supported Hardware: Grammar/phrasing tweaks</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="14 giu 2013 23:22 CEST" datetime="2013-06-14T21:22:41Z" is="time-ago">2 years ago</time></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+  <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+    <h3>
+      <span class="octicon octicon-book"></span>
+      README.md
+    </h3>
+
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
+<a id="user-content-pubnub-arduino-library" class="anchor" href="#pubnub-arduino-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>PubNub Arduino Library</h1>
+
+<p>This library allows your sketches to communicate with the PubNub cloud
+message passing system using an Ethernet shield. Your application can
+receive and send messages.</p>
+
+<h2>
+<a id="user-content-copy-and-paste-ready-code" class="anchor" href="#copy-and-paste-ready-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copy-and-Paste-Ready Code!</h2>
+
+<p>See how easy it is to <a href="https://github.com/pubnub/arduino/blob/master/examples/PubNubPublisher">Publish</a> and <a href="https://github.com/pubnub/arduino/blob/master/examples/PubNubSubscriber">Subscribe</a>!</p>
+
+<h3>
+<a id="user-content-synopsis" class="anchor" href="#synopsis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synopsis</h3>
+
+<pre><code>void setup() {
+    Serial.begin(9600);
+    Ethernet.begin(mac);
+    PubNub.begin(pubkey, subkey);
+}
+
+void loop() {
+    /* Maintain DHCP lease. */
+    Ethernet.maintain();
+
+    /* Publish message. */
+    EthernetClient *pclient = PubNub.publish(pubchannel, "\"message\"");
+    if (pclient)
+        pclient-&gt;stop();
+
+    /* Wait for news. */
+    PubSubClient *sclient = PubNub.subscribe(subchannel);
+    if (!sclient) return; // error
+    char buffer[64]; size_t buflen = 0;
+    while (sclient-&gt;wait_for_data()) {
+        buffer[buflen++] = sclient-&gt;read();
+    }
+    buffer[buflen] = 0;
+    sclient-&gt;stop();
+
+    /* Print received message. You will want to look at it from
+     * your code instead. */
+    Serial.println(buffer);
+    delay(10000);
+}
+</code></pre>
+
+<h2>
+<a id="user-content-library-reference" class="anchor" href="#library-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Library Reference</h2>
+
+<p><code>bool PubNub.begin(char *publish_key, char *subscribe_key, char *origin)</code></p>
+
+<p>To start using PubNub, use PubNub.begin().  This should be called after
+Ethernet.begin().</p>
+
+<p>Note that the string parameters are not copied; do not overwrite or free the
+memory where you stored the keys! (If you are passing string literals, don't
+worry about it.) Note that you should run only one of publish, subscribe and
+history requests each at once.</p>
+
+<p>The origin parameter is optional, defaulting to "pubsub.pubnub.com".</p>
+
+<p><code>EthernetClient *publish(char *channel, char *message, int timeout)</code></p>
+
+<p>Send a message (assumed to be well-formed JSON) to a given channel.</p>
+
+<p>Returns NULL in case of error, instead an instance of EthernetClient
+that you can use to read the reply to the publish command. If you
+don't care about it, call <code>client-&gt;stop()</code> right away.</p>
+
+<p>The timeout parameter is optional, defaulting to 305. See also
+a note about timeouts below.</p>
+
+<p><code>PubSubClient *subscribe(char *channel)</code></p>
+
+<p>Listen for a message on a given channel. The function will block
+and return when a message arrives. NULL is returned in case of error.
+The return type is PubSubClient, but from user perspective, you can
+work with it exactly like with EthernetClient; it also provides
+an extra convenience method <code>wait_for_data()</code> that allows you
+to wait for more data with sensible timeout.</p>
+
+<p>Typically, you will run this function from loop() function to keep
+listening for messages indefinitely.</p>
+
+<p>As a reply, you will get a JSON array with messages, e.g.:</p>
+
+<pre><code>    ["msg1",{msg2:"x"}]
+</code></pre>
+
+<p>and so on. Empty reply [] is also normal and your code must be
+able to handle that. Note that the reply specifically does not
+include the time token present in the raw reply from PubNub;
+no need to worry about that.</p>
+
+<p>The timeout parameter is optional, defaulting to 305. See also
+a note about timeouts below.</p>
+
+<p><code>EthernetClient *history(char *channel, int limit, int timeout)</code></p>
+
+<p>Receive list of the last messages published on the given channel.
+The limit argument is optional and defaults to 10.</p>
+
+<p>The timeout parameter is optional, defaulting to 305. See also
+a note about timeouts below.</p>
+
+<h2>
+<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Move the contents of the <code>pubnub/arduino/</code> directory to
+<code>~/sketchbook/libraries/PubNub/</code> and restart your Arduino IDE.
+Try out the examples!</p>
+
+<h2>
+<a id="user-content-supported-hardware" class="anchor" href="#supported-hardware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported Hardware</h2>
+
+<p>The Arduino ecosystem features a multitude of platforms that
+have significant differences regarding their hardware capabilities;
+here, we list the status of PubNub support for various platforms:</p>
+
+<ul class="task-list">
+<li>ATMega168-based generic boards (Duemilanove, Diecimila...):
+Not supported due to too small RAM and flash memory size.</li>
+<li><p>ATMega328-based generic boards (Duemilanove, Uno), Arduino
+Ethernet: Supported.  The space for user code may be somewhat limited.
+When using the aJson library, some memory saving tricks are required,
+see the top of the PubNubJson example.</p></li>
+<li><p>Arduino Mega (ATMega2560): Supported.</p></li>
+<li>Arduino Mega (ATMega1280): Untested, but should work just fine.</li>
+</ul>
+
+<p>Except Arduino Ethernet, network connectivity is provided by
+an external board ("shield"):</p>
+
+<ul class="task-list">
+<li>Arduino Ethernet Shield: Supported. We tested only a shield that
+is based on the WizNet W5100 chip - but this should be the case for
+all but some ancient non-official ethernet shields.</li>
+<li>Arduino WiFi Shield: Supported, but new enough firmware and software
+is required.  The support must be enabled in the PubNub library.
+Please see the "WiFi Shield Support" section for details.</li>
+</ul>
+
+<h2>
+<a id="user-content-wifi-shield-support" class="anchor" href="#wifi-shield-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>WiFi Shield Support</h2>
+
+<p>The PubNub library supports the WiFi shield as well. In order
+to use the library with a WiFi-enabled Arduino, you will need
+to edit the file PubNub.h, commenting out the line</p>
+
+<pre><code>//#define PubNub_Ethernet
+</code></pre>
+
+<p>and uncommenting</p>
+
+<pre><code>#define PubNub_WiFi
+</code></pre>
+
+<p>It is essential to use a new enough Arduino version so that
+the WiFi library actually works properly. Most notably, version 1.0.5
+has been confirmed to work while Arduino 1.0.4 is broken!</p>
+
+<p>The WiFi shield carries its own microcontroller dedicated to the network
+communication and this microcontroller has upgradeable firmware.
+If some of the PubNub calls fail with your WiFi shield (e.g. you
+see "subscribe error" and similar messages in serial console),
+the firmware loaded on your WiFi shield may be buggy - e.g. a WiFi
+shield bought commercially in May 2013 came preloaded with firmware
+that had to be upgraded.  This is not so difficult to do, simply follow:</p>
+
+<pre><code>http://arduino.cc/en/Hacking/WiFiShieldFirmwareUpgrading
+</code></pre>
+
+<h2>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h2>
+
+<ul class="task-list">
+<li><p>There is no SSL support on Arduino, it is unfeasible with
+Arduino Uno or even Arduino Mega's computing power and memory limits.
+All the traffic goes on the wire unencrypted and unsigned.</p></li>
+<li><p>We re-resolve the origin server IP address before each request.
+This means some slow-down for intensive communication, but we rather
+expect light traffic and very long-running sketches (days, months),
+where refreshing the IP address is quite desirable.</p></li>
+<li><p>We let the users read replies at their leisure instead of
+returning an already preloaded string so that (a) they can do that
+in loop() code while taking care of other things as well (b) we don't
+waste precious RAM by pre-allocating buffers that are never needed.</p></li>
+<li><p>If you are having problems connecting, maybe you have hit
+a bug in Debian's version of Arduino pertaining the DNS code. Try using
+an IP address as origin and/or upgrading your Arduino package.</p></li>
+<li><p>The optional timeout parameter allows you to specify a timeout
+period after which the subscribe call shall be retried. Note
+that this timeout is applied only for reading response, not for
+connecting or sending data; use retransmission parameters of
+the Ethernet library to tune this. As a rule of thumb, timeout
+smaller than 30 seconds may still block longer with flaky
+network. Default server-side timeout of PubNub API is 300s.</p></li>
+<li><p>The vendor firmware for the WiFi shield has dubious TCP implementation;
+for example, TCP ports of outgoing connections are always chosen from the
+same sequence, so if you reset your Arduino, some of the new connections
+may interfere with an outstanding TCP connection that has not been closed
+before the reset; i.e. you will typically see a single failed request
+somewhere down the road after a reset.</p></li>
+</ul>
+</article>
+  </div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="http://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="http://shop.github.com/" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2015 <span title="0.04418s from github-fe133-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="pubnub_arduino%20%C2%B7%20GitHub_files/frameworks-58b6d3b83766eebd6a230370d045d01ffa68d84d6504f3d186.js"></script>
+      <script async="async" crossorigin="anonymous" src="pubnub_arduino%20%C2%B7%20GitHub_files/github-21bf5584ca2e19134550213f6e42393847a7ef7346356bb32c8900.js"></script>
+      
+      
+
+  
+
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="pubnub_arduino%20%C2%B7%20GitHub_files/ZeroClipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body></html>
