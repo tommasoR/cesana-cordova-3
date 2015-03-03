@@ -133,6 +133,12 @@ content: "\6f";
 .face-13:before {
 content: "\7a";
 }
+.face-14:before {
+content: "\54";
+}
+.face-15:before {
+content: "\24";
+}
 .color-1 {
 color: #393b79;
 }
