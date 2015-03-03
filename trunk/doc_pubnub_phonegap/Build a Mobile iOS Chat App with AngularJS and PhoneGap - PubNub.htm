@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="google-site-verification" content="X-NyWbTQ-1CgZ7cvLZYPOc0BzO7PblJv201J3PJXAJI">
+    <meta name="theme-color" content="#ce1126">
+
+    
+        <meta name="description" content="Build a Mobile iOS Chat App with AngularJS and PhoneGap">
+    
+    <title>Build a Mobile iOS Chat App with AngularJS and PhoneGap - PubNub</title>
+
+    <meta name="google-site-verification" content="t5d3Yna_Cvup118ZfZmBN0Om5UroaqXI3q1ewUD7pzA">
+    <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi, initial-scale=1.0, maximum-scale=1.5;">
+    
+
+      <!-- Social Meta and Open Graph Data -->
+    <meta property="og:title" content="Build a Mobile iOS Chat App with AngularJS and PhoneGap">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.pubnub.com/blog/build-a-mobile-ios-chat-app-with-angularjs-and-phonegap/">
+
+    <meta name="twitter:domain" content="www.pubnub.com">
+        <meta property="og:description" content="We know the world’s going mobile. As a result, mobile app development is growing exponentially in demand. However, there...">
+    <meta name="twitter:description" content="We know the world’s going mobile. As a result, mobile app development is growing exponentially in demand. However, there...">
+
+            <meta name="twitter:image:src" content="http://www.pubnub.com/blog/wp-content/uploads/2015/02/iphone-mobile-chat-phonegap-angularjs.png">
+        <meta property="og:image" content="http://www.pubnub.com/blog/wp-content/uploads/2015/02/iphone-mobile-chat-phonegap-angularjs.png">
+    
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pubnub">
+    <meta name="twitter:creator" content="pubnub">
+    <meta name="twitter:title" content="Build a Mobile iOS Chat App with AngularJS and PhoneGap">
+
+    
+    <script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/pd.js" type="text/javascript"></script><script id="undefined" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/inpage_linkid.js" async="" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/bf.js" async="" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/me" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/ga.js" async="" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/mixpanel-2-latest.js" async="" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/30715011.js"></script>
+
+    <link rel="icon" type="image/png" href="http://www.pubnub.com/static/images/structure/favicon.png">
+
+    
+    <link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/styles.css">
+    <!--[if lt IE 9]> <script src="/static/js/ie.js?ts=1425334706"></script> <![endif]-->
+
+          <script type="text/javascript" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/buttons.js"></script>
+      <script type="text/javascript">stLight.options({publisher: "08b002fb-12ea-4d0f-bf30-214e31ce17ac", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    
+            
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+    (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("2e2f10a0c2fb07d4ee43809457de5e3e");
+    </script>
+    <!-- end Mixpanel -->
+
+  <script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/getAllAppDefault.esi" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/checkOAuth.esi" type="text/javascript"></script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/analytics" type="text/javascript"></script><link href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/buttons.css" type="text/css" rel="stylesheet"><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/analytics_002" type="text/javascript"></script></head>
+
+  <body id="blog" class="blog">
+
+  <header class="navbar-fixed-top card">
+  <div class="full-width hidden-xs" style="background-color: #f2f2f2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar nav-secondary">
+            <ul class="nav pull-right">
+                            <li class=""><a href="http://www.pubnub.com/company/">Company</a></li>
+              <li class=""><a href="http://www.pubnub.com/customers/">Customers</a></li>
+              <li class=""><a href="http://www.pubnub.com/press/">Press</a></li>
+              <li class=""><a href="http://www.pubnub.com/company/contact-us/">Contact</a></li>
+              <li class="underline"><a href="http://www.pubnub.com/blog/">Blog</a></li>
+              <li>
+                <form class="form-search" action="/search/">
+                  <input name="cx" value="016318228531359278205:tloy-ifg-ta" type="hidden">
+                  <input name="cof" value="FORID:9" type="hidden">
+                  <input name="ie" value="UTF-8" type="hidden">
+                  <input id="search-box" class="searchinput full-width" name="q" placeholder="Search" type="search">
+                  <button type="submit"><i class="fa fa-search"></i><span class="hidden">Search</span></button>
+                </form>
+              </li>
+              
+              <li id="loged-in"><div id="user-dropdown" class="dropdown-link"><a href="https://admin.pubnub.com/#user/221605"><i class="fa fa-user profile branded"></i><span class="branded"> t r</span></a><ul class="dropdown-list animate"><li><a href="https://admin.pubnub.com/#user/221605/app/223361/usage"><i class="fa fa-cog"></i><span>My First PubNub App</span></a></li></ul></div></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav class="navbar nav-main">
+          <div class="logo pull-left">
+            <a href="http://www.pubnub.com/" id="site-logo">PubNub</a>
+          </div>
+          <ul class="nav pull-right hidden-xs">
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/use-cases/">Use Cases<i class="fa fa-caret-down"></i></a>
+               <ul class="dropdown-list animate">
+                 <li>
+                   <a href="http://www.pubnub.com/use-cases/" style="padding-left: 13px;">
+                     <i class="fa fa-star"></i>
+                     <span>Use Cases</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/iot-network/" style="padding-left: 13px;">
+                     <i class="fa fa-plug"></i>
+                     <span>I<span style="text-transform:lowercase;">o</span>T Network </span>
+                   </a>
+                 </li>
+                 <li>
+                   </li><li>
+                     <a href="http://www.pubnub.com/customers/" style="padding-left: 13px;">
+                     <i class="fa fa-child"></i>
+                     Customers
+                     </a>
+                   </li>
+                 
+               </ul>
+               
+             </li>
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/how-it-works/">How it Works <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-list animate">
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/">
+                    <i class="fa fa-puzzle-piece" style="color:#ce1126 !important;font-size: 21px;position: relative;"></i>
+                    <span>How it Works</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/data-streams/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/data-streams.png" alt="data streams icon"></i>
+                    <span>Pub/Sub</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/presence/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/presence.png" alt="presence icon"></i>
+                    <span>Presence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/storage-and-playback/">
+                    <i class="push-down"><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/storage.png" alt="storage and playback icon"></i>
+                    <span>Storage &amp; Playback</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/stream-controller/">
+                    <i class="push-down"><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/SyndicateStreams.png" alt="Stream Controller"></i>
+                    <span>Stream Controller</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/mobile/">
+                    <i class="push-down"><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/mobile.png" alt="mobile icon"></i>
+                    Mobile Push Gateway
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/analytics/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/analytics.png" alt="analytics icon"></i>
+                    <span>Analytics</span>
+                  </a>
+                </li>
+                <li>
+                <a href="http://www.pubnub.com/how-it-works/data-sync/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/data-sync.png" alt="data sync icon"></i>
+                    <span>Data Sync</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/pam/">
+                    <i class="fa fa-key" style="color:#ce1126 !important;font-size: 21px;position: relative;top: 8px;"></i>
+                    <span>
+                      Access Management
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/security/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/security.png" alt="security icon"></i>
+                    <span>Security</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/how-it-works/network/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/network.png" alt="network icon"></i>
+                    Network
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/developers/">Developers <i class="fa fa-caret-down"></i></a>
+               <ul class="dropdown-list animate">
+                 <li>
+                   <a href="http://www.pubnub.com/developers/demos/">
+                     <i class="fa fa-file-code-o"></i>
+                     <span>Demos</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/community/">
+                     <i class="fa fa-users"></i>
+                     <span>Community</span>
+                   </a>
+                 </li>
+                 <li>
+                   <a href="http://www.pubnub.com/knowledge-base/">
+                     <i class="fa fa-graduation-cap"></i>
+                     <span>Knowledge Base</span>
+                   </a>
+                 </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/">
+                    <i class="fa fa-cogs"></i>
+                    <span>SDKs</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/console/">
+                    <i class="fa fa-terminal"></i>
+                    <span>Dev Console</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://support.pubnub.com/" target="_blank">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Support</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/documentation">
+                    <i class="fa fa-book"></i>
+                    <span>Docs</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+
+            <li class="dropdown-link">
+              <a href="http://www.pubnub.com/developers/tutorials/pub-sub">tutorials <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-list animate">
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/pub-sub">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/data-streams.png" alt="data streams icon"></i>
+                    <span>Pub/Sub</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/presence/">
+                    <i><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/presence.png" alt="presence icon"></i>
+                    <span>Presence</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/storage-and-playback/">
+                    <i class="push-down"><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/storage.png" alt="storage and playback icon"></i>
+                    <span>Storage &amp; Playback</span>
+                  </a>
+                </li>
+                                <li>
+                  <a href="http://www.pubnub.com/developers/tutorials/access-manager/">
+                    <i class="fa fa-key" style="color:#ce1126 !important;font-size: 21px;position: relative;top: 8px;"></i>
+                    <span>
+                      Access Manager
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+          <ul class="nav pull-right visible-xs">
+            <li><a href="http://www.pubnub.com/how-it-works/">How it Works</a></li>
+            <li><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+            <li><a href="http://www.pubnub.com/developers/">Developers</a></li>
+            <li><a href="http://www.pubnub.com/in-action/">Use Cases</a></li>
+            <li><a href="http://www.pubnub.com/customers/">Customers</a></li>
+            <li><a href="http://www.pubnub.com/blog/">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<div id="alert_container" class="alert ">Join us at the IoT Stream Conference April 23rd @ Bently Reserve, San Francisco <a target="pn-chrome-tab" href="http://iot.streamconf.com/"> Learn more <i class="fa fa-chevron-right"></i></a></div>
+
+
+	<section class="no-padding">
+		<div class="container">
+
+			<div class="row overflow-hidden padding-bottom">
+      	<div class="col-sm-9 padding-top-20">
+
+										<article class="single">
+						<div class="article-header">
+              <h1 class="h2">Build a Mobile iOS Chat App with AngularJS and PhoneGap</h1>
+							<ul class="list-inline">
+                <li>By <a href="http://www.pubnub.com/blog/author/sunnynorvan/" title="Posts by Sunny Gleason &amp; Norvan Sahiner" rel="author">Sunny Gleason &amp; Norvan Sahiner</a></li>
+                <li>Follow <a href="http://twitter.com/pubnub" target="_blank">@pubnub</a></li>
+                <li><time datetime="2015-02-19" pubdate="">February 19, 2015</time></li>              </ul>
+						</div>
+
+						<div class="article-content">
+							<div>
+<a href="http://www.pubnub.com/blog/wp-content/uploads/2015/02/iphone-mobile-chat-phonegap.png"><img class="alignright size-full wp-image-10172" alt="ios chat phonegap angularjs" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/iphone-mobile-chat-phonegap.png" height="560" width="350"></a>
+<p>We know the world’s going mobile. As a result, mobile app development
+ is growing exponentially in demand. However, there are hundreds of 
+platforms to choose from, and mobile development for a number of 
+different platforms is pricey.</p>
+<p>Luckily, there is a solution which allows you to develop for multiple
+ mobile platforms with one codebase. This solution is PhoneGap/Cordova.</p>
+<h3>PhoneGap/Cordova for iOS Chat</h3>
+</div>
+<div>
+<p>PhoneGap/Cordova enables a developer to build an application in 
+JavaScript (or in this tutorial’s case, AngularJS), and make it 
+compatible for iOS devices.</p>
+<p>And luckily for you, the same code can be used on other platforms (<a href="http://www.pubnub.com/blog/build-a-mobile-android-chat-app-with-phonegap-cordova/" target="_blank">check out the Android version of this demo here</a>).</p>
+<p>In this tutorial, we won’t be using Xcode, Objective-C, or Swift, but
+ rather JavaScript.&nbsp;It will have the structure of a web application
+ and will allow non-mobile developers to get onboard very easily, 
+without the common hassle of learning Swift or Objective-C. It also will
+ adapt for different screen sizes, now that iPhones have different form 
+factors such as iPhone 5C or 5S, iPhone 6, and iPhone 6 plus.</p>
+</div>
+<div>
+<p>By using HTML and AngularJS we will build a chat you can run on 
+multiple devices with different screen sizes and resolutions. Example 
+devices are the Nexus 5, Nexus 6, Motorola’s Moto X or Moto G, and any 
+of Samsung’s or LG’s flagship phones.</p>
+</div>
+<div>
+<p>In this post we will use the Cordova open-source engine to build an 
+iOS specific app. Because PhoneGap uses more or less the same engine, we
+ will use the two terms interchangeably.</p>
+<p style="text-align: center;"><a href="http://www.pubnub.com/blog/wp-content/uploads/2015/02/delay1.gif"><img class="aligncenter size-full wp-image-10166" alt="ios chat phonegap angularjs" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/delay1.gif" height="483" width="231"></a></p>
+<p>&nbsp;</p>
+<div>
+<p>Let’s dive in and figure out all we need before getting started!</p>
+</div>
+<div>
+<h3 id="user-content-install-cordova-phonegap-for-ios-development"><a id="user-content-install-cordovaphonegap-for-ios-development" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#install-cordovaphonegap-for-ios-development"></a>Install Cordova/PhoneGap for iOS Development</h3>
+<div>
+<p>First let’s install Cordova. The complete <a href="http://cordova.apache.org/" target="_blank">Cordova installation guide is&nbsp;here</a>, but for Linux and Mac OS X users who already have&nbsp;<a href="https://github.com/npm/npm" target="_blank">npm installed</a>, all you will need to do is to open a terminal and write:</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_005.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-1-bash-L1" rel="file-1-bash-L1">1</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-1-bash-LC1">$ npm install -g cordova
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/1.bash" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-1-bash">1.bash</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<p>That’s all! For the specific mobile platforms you want to compile 
+your code to, it may take a little more time if you don’t already have 
+all the tools setup. But honestly, it won’t be too troublesome 
+installing all of it.</p>
+</div>
+<div>
+<h4 id="user-content-requirements-to-build-an-ios-app-with-cordova-phonegap"><a id="user-content-requirements-to-build-an-ios-app-with-cordovaphonegap" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#requirements-to-build-an-ios-app-with-cordovaphonegap"></a>Requirements to Build an iOS Chat App with Cordova/PhoneGap</h4>
+<div>
+<ul>
+<li>A computer running OS X (maybe in a VM?)</li>
+<li>Xcode and the latest iOS SDK (available for free on the apple store!)</li>
+<li>Xcode command line tools (available for free on the apple store!)</li>
+<li>ios-sim to simulate an iOS device (simply writing&nbsp;<code>$npm install -g ios-sim</code>&nbsp;in the terminal should do the trick)</li>
+</ul>
+</div>
+</div>
+</div>
+<div>
+<h3 id="user-content-getting-started-create-a-phonegap-cordova-project"><a id="user-content-getting-started-create-a-phonegapcordova-project" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#getting-started-create-a-phonegapcordova-project"></a>Getting Started: Create a PhoneGap/Cordova Project</h3>
+<div>
+<p>Alright, at this point if you already had your environment set up you
+ just needed to write a few words in the terminal. If you had to install
+ Xcode, it probably took you a lot more time than that.</p>
+</div>
+<div>
+<p>Now that we’re all up to speed, let’s start a Cordova project. To do so, let’s&nbsp;<code>cd</code>&nbsp;to the working directory of our choice, and run the following command:</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_011.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-2-bash-L1" rel="file-2-bash-L1">1</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-2-bash-LC1">$ cordova create [folder name] [com.example.appname] [application name]
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/2.bash" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-2-bash">2.bash</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>The folder name is the only required field here, but you’ll be better
+ off inputing all three of them right now. The second field,&nbsp;<code>com.example.appname</code>&nbsp;represents the package identifier as you’d name it in a Xcode project for example.</p>
+<h4 id="user-content-what-does-a-phonegap-cordova-project-contain">What does a PhoneGap/Cordova project contain?</h4>
+<p style="text-align: center;"><a href="http://www.pubnub.com/blog/wp-content/uploads/2015/02/tree-and-hooks1.png"><img class="aligncenter size-large wp-image-10168" alt="ios chat phonegap angularjs" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/tree-and-hooks1-1024x753.png" height="753" width="1024"></a></p>
+<div>
+<div>
+<div>
+<p>Cordova simply built the structure for a cordova project with a little HelloWorld app. Let’s look at the folders we created:</p>
+</div>
+<div>
+<ul>
+<li><strong>hooks/</strong>&nbsp;folder is here to shelter scripts that 
+need to be executed at different steps of the app’s life cycle. We won’t
+ be needing to deal with that here, it’s just nice knowing why we have 
+empty folders lying around.</li>
+<li><strong>platforms/</strong>&nbsp;will contain a folder for every 
+platform you decide to compile your code on. We’ll soon have an iOS 
+folder in there that will contain an Objective-C project, without us 
+having to write any of it. Pretty neat, right?</li>
+<li><strong>plugins/</strong>, self explanatory. We won’t be using this folder either.</li>
+<li><strong>www/</strong>&nbsp;will be where we’ll be doing all our work. It’ll contain our HTML code and our javascript.</li>
+</ul>
+</div>
+<div>
+<p>You can probably keep the folders and delete all the files inside our&nbsp;<code>www/</code>&nbsp;folder, we won’t be needing the given helloWorld app, but feel free to take a look at it.</p>
+</div>
+<div>
+<p>You do want to keep the config.xml file in the root directory and 
+edit the relevant points (change the app name, add a description, put in
+ the author’s name, etc…)</p>
+</div>
+</div>
+</div>
+<div>
+<h3 id="user-content-using-angularjs-and-html-to-develop-an-ios-application"><a id="user-content-using-angularjs-and-html-to-develop-an-ios-application" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#using-angularjs-and-html-to-develop-an-ios-application"></a>Using AngularJS and HTML to Develop an iOS App</h3>
+<div>
+<p>In this section, you will find all of the required code to make the 
+app run. To set up the structure of your simple AngularJS chat 
+application, check out our <a href="http://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/" target="_blank">introduction to AngularJS chat application blog post here</a>. We go line-by-line!</p>
+</div>
+<div>
+<p>It’s important to remember that building mobile apps in Cordova 
+allows you to create web applications as native applications. As a 
+result, developing mobile applications in Cordova resembles developing 
+web applications for mobile browsers.</p>
+</div>
+<div>
+<h4 id="user-content-what-a-phonegap-cordova-html-file-should-include"><a id="user-content-what-a-phonegapcordova-html-file-should-include" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#what-a-phonegapcordova-html-file-should-include"></a>What a PhoneGap/Cordova html file should include:</h4>
+<div>
+<p>The head of our document will be as follows:</p>
+</div>
+</div>
+</div>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_009.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-3-html-L1" rel="file-3-html-L1">1</span>
+            <span class="line-number" id="file-3-html-L2" rel="file-3-html-L2">2</span>
+            <span class="line-number" id="file-3-html-L3" rel="file-3-html-L3">3</span>
+            <span class="line-number" id="file-3-html-L4" rel="file-3-html-L4">4</span>
+            <span class="line-number" id="file-3-html-L5" rel="file-3-html-L5">5</span>
+            <span class="line-number" id="file-3-html-L6" rel="file-3-html-L6">6</span>
+            <span class="line-number" id="file-3-html-L7" rel="file-3-html-L7">7</span>
+            <span class="line-number" id="file-3-html-L8" rel="file-3-html-L8">8</span>
+            <span class="line-number" id="file-3-html-L9" rel="file-3-html-L9">9</span>
+            <span class="line-number" id="file-3-html-L10" rel="file-3-html-L10">10</span>
+            <span class="line-number" id="file-3-html-L11" rel="file-3-html-L11">11</span>
+            <span class="line-number" id="file-3-html-L12" rel="file-3-html-L12">12</span>
+            <span class="line-number" id="file-3-html-L13" rel="file-3-html-L13">13</span>
+            <span class="line-number" id="file-3-html-L14" rel="file-3-html-L14">14</span>
+            <span class="line-number" id="file-3-html-L15" rel="file-3-html-L15">15</span>
+            <span class="line-number" id="file-3-html-L16" rel="file-3-html-L16">16</span>
+            <span class="line-number" id="file-3-html-L17" rel="file-3-html-L17">17</span>
+            <span class="line-number" id="file-3-html-L18" rel="file-3-html-L18">18</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-3-html-LC1">&lt;!DOCTYPE html&gt;
+</div><div class="line" id="file-3-html-LC2">&lt;<span class="pl-ent">html</span>&gt;
+</div><div class="line" id="file-3-html-LC3">    &lt;<span class="pl-ent">head</span>&gt;
+</div><div class="line" id="file-3-html-LC4">        &lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s1"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span> /&gt;
+</div><div class="line" id="file-3-html-LC5">        &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>format-detection<span class="pl-pds">"</span></span>
+</div><div class="line" id="file-3-html-LC6">              <span class="pl-e">content</span>=<span class="pl-s1"><span class="pl-pds">"</span>telephone=no<span class="pl-pds">"</span></span> /&gt;
+</div><div class="line" id="file-3-html-LC7">        &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>msapplication-tap-highlight<span class="pl-pds">"</span></span>
+</div><div class="line" id="file-3-html-LC8">              <span class="pl-e">content</span>=<span class="pl-s1"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span> /&gt;
+</div><div class="line" id="file-3-html-LC9">        &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s1"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span>
+</div><div class="line" id="file-3-html-LC10">              <span class="pl-e">content</span>=<span class="pl-s1"><span class="pl-pds">"</span>user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi<span class="pl-pds">"</span></span> /&gt;
+</div><div class="line" id="file-3-html-LC11">        <span class="pl-c">&lt;!-- Required libraries for the chat --&gt;</span>
+</div><div class="line" id="file-3-html-LC12"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://cdn.pubnub.com/pubnub.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-3-html-LC13"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://cdn.pubnub.com/pubnub-crypto.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-3-html-LC14"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-3-html-LC15"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://pubnub.github.io/pubnub-angular/lib/pubnub-angular.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-3-html-LC16">        &lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css<span class="pl-pds">"</span></span>&gt;
+</div><div class="line" id="file-3-html-LC17">        &lt;<span class="pl-ent">title</span>&gt;PubNub Angular Mobile Chat&lt;/<span class="pl-ent">title</span>&gt;
+</div><div class="line" id="file-3-html-LC18">    &lt;/<span class="pl-ent">head</span>&gt;
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/3.html" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-3-html">3.html</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<p>This looks familiar. As expected we start by defining our encryption. The rest is less common:</p>
+</div>
+<div>
+<ul>
+<li>The&nbsp;<code>"format-detection"</code>&nbsp;meta tag simply 
+disables the ability for telephone numbers to appear as hypertext links.
+ The default value for iOS and Safari being yes, we have decided to 
+disable it so that all devices behave similarly.</li>
+<li>In a similar fashion, the&nbsp;<code>"msapplication-tap-highlight"</code>&nbsp;meta tag is a Microsoft only tag disabling tap highlighting for links.</li>
+<li>The&nbsp;<code>"viewport"</code>&nbsp;tag is the most important here
+ as it defines the behavior of our view. It is set here such that the 
+user may not use zoom functionalities and sets the scale of the page. 
+Redundantly we limit the maximum and minimum scales to 1. Feel free to 
+modify them as you wish. We also set the canvas of our HTML code to 
+match the screen of the device. Finally, we set the pixel density. This 
+is a more delicate affair and might need to be tweaked depending on the 
+device. Remember that a pixel is not a pixel! Understand that a screen 
+pixel and a CSS pixel are different entities. More about this tag 
+on&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag" target="_blank">Mozilla’s</a>&nbsp;and&nbsp;<a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html" target="_blank">Safari’s</a>&nbsp;developer page.</li>
+</ul>
+</div>
+<div>
+<p>Let’s do a rapid overview of the scripts:</p>
+</div>
+<div>
+<ul>
+<li><strong>pubnub.min.js</strong>&nbsp;holds the heart of the javascript PubNub communication library.</li>
+<li><strong>pubnub-crypto.min.js</strong>&nbsp;holds encryption features.</li>
+<li><strong>angular.min.js</strong>&nbsp;allows us to use some awesome AngularJS features in our JS and HTML. You’ll see the wicked consequences in a minute!</li>
+<li><strong>pubnub-angular.js</strong>&nbsp;extends the pubnub functionalities for AngularJS.</li>
+<li><strong>bootstrap.min.css</strong>&nbsp;to have that nice bootstrap look.</li>
+</ul>
+</div>
+</div>
+<div>
+<h4 id="user-content-how-to-use-angularjs-attribute-in-our-html-body"><a id="user-content-how-to-use-angularjs-attribute-in-our-html-body" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#how-to-use-angularjs-attribute-in-our-html-body"></a>How to use AngularJS attribute in our HTML body</h4>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_007.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-4-html-L1" rel="file-4-html-L1">1</span>
+            <span class="line-number" id="file-4-html-L2" rel="file-4-html-L2">2</span>
+            <span class="line-number" id="file-4-html-L3" rel="file-4-html-L3">3</span>
+            <span class="line-number" id="file-4-html-L4" rel="file-4-html-L4">4</span>
+            <span class="line-number" id="file-4-html-L5" rel="file-4-html-L5">5</span>
+            <span class="line-number" id="file-4-html-L6" rel="file-4-html-L6">6</span>
+            <span class="line-number" id="file-4-html-L7" rel="file-4-html-L7">7</span>
+            <span class="line-number" id="file-4-html-L8" rel="file-4-html-L8">8</span>
+            <span class="line-number" id="file-4-html-L9" rel="file-4-html-L9">9</span>
+            <span class="line-number" id="file-4-html-L10" rel="file-4-html-L10">10</span>
+            <span class="line-number" id="file-4-html-L11" rel="file-4-html-L11">11</span>
+            <span class="line-number" id="file-4-html-L12" rel="file-4-html-L12">12</span>
+            <span class="line-number" id="file-4-html-L13" rel="file-4-html-L13">13</span>
+            <span class="line-number" id="file-4-html-L14" rel="file-4-html-L14">14</span>
+            <span class="line-number" id="file-4-html-L15" rel="file-4-html-L15">15</span>
+            <span class="line-number" id="file-4-html-L16" rel="file-4-html-L16">16</span>
+            <span class="line-number" id="file-4-html-L17" rel="file-4-html-L17">17</span>
+            <span class="line-number" id="file-4-html-L18" rel="file-4-html-L18">18</span>
+            <span class="line-number" id="file-4-html-L19" rel="file-4-html-L19">19</span>
+            <span class="line-number" id="file-4-html-L20" rel="file-4-html-L20">20</span>
+            <span class="line-number" id="file-4-html-L21" rel="file-4-html-L21">21</span>
+            <span class="line-number" id="file-4-html-L22" rel="file-4-html-L22">22</span>
+            <span class="line-number" id="file-4-html-L23" rel="file-4-html-L23">23</span>
+            <span class="line-number" id="file-4-html-L24" rel="file-4-html-L24">24</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-4-html-LC1">&lt;<span class="pl-ent">body</span>&gt;
+</div><div class="line" id="file-4-html-LC2">        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">ng-app</span>=<span class="pl-s1"><span class="pl-pds">"</span>PubNubAngularApp<span class="pl-pds">"</span></span> <span class="pl-e">ng-controller</span>=<span class="pl-s1"><span class="pl-pds">"</span>ChatCtrl<span class="pl-pds">"</span></span>&gt;
+</div><div class="line" id="file-4-html-LC3">            &lt;<span class="pl-ent">br</span> /&gt;
+</div><div class="line" id="file-4-html-LC4">            &lt;<span class="pl-ent">h4</span>&gt;Online Users&lt;/<span class="pl-ent">h4</span>&gt;
+</div><div class="line" id="file-4-html-LC5">            &lt;<span class="pl-ent">ul</span>&gt;
+</div><div class="line" id="file-4-html-LC6">                &lt;<span class="pl-ent">li</span> <span class="pl-e">ng-repeat</span>=<span class="pl-s1"><span class="pl-pds">"</span>user in users<span class="pl-pds">"</span></span>&gt;{{user}}&lt;/<span class="pl-ent">li</span>&gt;
+</div><div class="line" id="file-4-html-LC7">            &lt;/<span class="pl-ent">ul</span>&gt;
+</div><div class="line" id="file-4-html-LC8">            &lt;<span class="pl-ent">br</span> /&gt;
+</div><div class="line" id="file-4-html-LC9">            &lt;<span class="pl-ent">h4</span>&gt;Chat History ({{messages.length}})&lt;/<span class="pl-ent">h4</span>&gt;
+</div><div class="line" id="file-4-html-LC10">            &lt;<span class="pl-ent">form</span> <span class="pl-e">ng-submit</span>=<span class="pl-s1"><span class="pl-pds">'</span>publish()<span class="pl-pds">'</span></span>&gt;
+</div><div class="line" id="file-4-html-LC11">                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">ng-model</span>=<span class="pl-s1"><span class="pl-pds">'</span>newMessage<span class="pl-pds">'</span></span> /&gt;
+</div><div class="line" id="file-4-html-LC12">                &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>Send<span class="pl-pds">"</span></span> /&gt;
+</div><div class="line" id="file-4-html-LC13">            &lt;/<span class="pl-ent">form</span>&gt;
+</div><div class="line" id="file-4-html-LC14">            &lt;<span class="pl-ent">br</span> /&gt;
+</div><div class="line" id="file-4-html-LC15">            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>well<span class="pl-pds">"</span></span>&gt;
+</div><div class="line" id="file-4-html-LC16">                &lt;<span class="pl-ent">ul</span>&gt;
+</div><div class="line" id="file-4-html-LC17">                    &lt;<span class="pl-ent">li</span> <span class="pl-e">ng-repeat</span>=<span class="pl-s1"><span class="pl-pds">"</span>message in messages<span class="pl-pds">"</span></span>&gt;{{message}}&lt;/<span class="pl-ent">li</span>&gt;
+</div><div class="line" id="file-4-html-LC18">                &lt;/<span class="pl-ent">ul</span>&gt;
+</div><div class="line" id="file-4-html-LC19">            &lt;/<span class="pl-ent">div</span>&gt;
+</div><div class="line" id="file-4-html-LC20">        &lt;/<span class="pl-ent">div</span>&gt;
+</div><div class="line" id="file-4-html-LC21"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>cordova.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-4-html-LC22"><span class="pl-s2">        &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>js/pubnubAngularApp.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
+</div><div class="line" id="file-4-html-LC23">    &lt;/<span class="pl-ent">body</span>&gt;
+</div><div class="line" id="file-4-html-LC24">&lt;/<span class="pl-ent">html</span>&gt;
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/4.html" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-4-html">4.html</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<p>Let’s make it simple. Angular is the key to our app’s dynamism thanks
+ to the ng-app directive referring to our module and ng-controller 
+directive which links our controller to our template.</p>
+</div>
+<div>
+<p>We can divide the code into two key parts. One listing the Users, one
+ listing the messages. Let’s have a quick review of these angular 
+attributes:</p>
+</div>
+<div>
+<ul>
+<li>Thanks to the angular attribute ng-repeat, we dynamically generate a list of users from our data, and a list of messages.</li>
+<li>The ng-submit allows us to call the publish() method from our Javascript code which we will see in a minute.</li>
+<li>ng-model, as you can guess, does some binding with our data model</li>
+</ul>
+</div>
+<div>
+<p>Finally, we call our cordova script which is essential for our app to function. The&nbsp;<code>"pubnubAngularApp.js"</code>&nbsp;holds the brain of our app!</p>
+</div>
+<div>
+<p>Let’s open the hood of our app’s downloadable example code. We’ll 
+explore the fun logic inside before taking it for a ride on real devices
+ or emulators.</p>
+</div>
+</div>
+<div>
+<h4 id="user-content-writing-a-mobile-application-in-javascript"><a id="user-content-writing-a-mobile-application-in-javascript" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#writing-a-mobile-application-in-javascript"></a>Writing a mobile application in Javascript</h4>
+<div>
+<p><em>“Cogito ergo sum” –Javascript</em></p>
+</div>
+<div>
+<p>The JavaScript code holds the controller to the HTML code. We’ll do a quick overview. Again, for a more <a href="http://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/" target="_blank">precise AngularJS chat app description&nbsp;go here</a>.</p>
+<p>You’ll want to <a href="http://www.pubnub.com/get-started/">sign up for a free PubNub account</a>, then get your unique publish/subscribe keys from the <a href="https://admin.pubnub.com/">Developer Admin Dashboard</a>. We have an unlimited Sandbox tier, so test as much as you like. Input your publish/subscribe keys below:</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_008.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-5-js-L1" rel="file-5-js-L1">1</span>
+            <span class="line-number" id="file-5-js-L2" rel="file-5-js-L2">2</span>
+            <span class="line-number" id="file-5-js-L3" rel="file-5-js-L3">3</span>
+            <span class="line-number" id="file-5-js-L4" rel="file-5-js-L4">4</span>
+            <span class="line-number" id="file-5-js-L5" rel="file-5-js-L5">5</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-5-js-LC1">PubNub.init({
+</div><div class="line" id="file-5-js-LC2">    subscribe_key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>SUBSCRIBE KEY HERE<span class="pl-pds">'</span></span>,
+</div><div class="line" id="file-5-js-LC3">    publish_key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>PUBLISH KEY HERE<span class="pl-pds">'</span></span>,
+</div><div class="line" id="file-5-js-LC4">    uuid<span class="pl-k">:</span>$scope.userId
+</div><div class="line" id="file-5-js-LC5">});
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/5.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-5-js">5.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>The controller first initialized PubNub with a subscribe and publish key.</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_003.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-6-js-L1" rel="file-6-js-L1">1</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-6-js-LC1">PubNub.ngSubscribe({ channel<span class="pl-k">:</span> $scope.channel });
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/6.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-6-js">6.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>Once this is done, we can subscribe to a channel where all the users from the chat will send their messages.</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-7-js-L1" rel="file-7-js-L1">1</span>
+            <span class="line-number" id="file-7-js-L2" rel="file-7-js-L2">2</span>
+            <span class="line-number" id="file-7-js-L3" rel="file-7-js-L3">3</span>
+            <span class="line-number" id="file-7-js-L4" rel="file-7-js-L4">4</span>
+            <span class="line-number" id="file-7-js-L5" rel="file-7-js-L5">5</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-7-js-LC1">$rootScope.$on(PubNub.ngMsgEv($scope.channel), <span class="pl-st">function</span>(<span class="pl-vpf">ngEvent</span>, <span class="pl-vpf">payload</span>) {
+</div><div class="line" id="file-7-js-LC2">    scope.$<span class="pl-s3">apply</span>(<span class="pl-st">function</span>() {
+</div><div class="line" id="file-7-js-LC3">        $scope.messages.<span class="pl-s3">push</span>(payload.message);
+</div><div class="line" id="file-7-js-LC4">    });
+</div><div class="line" id="file-7-js-LC5">});
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/7.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-7-js">7.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>Because we want to upload these messages to the screen as soon as 
+they are received on the channel, we write a callback which is triggered
+ every time the new message event is fired.</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_012.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-8-js-L1" rel="file-8-js-L1">1</span>
+            <span class="line-number" id="file-8-js-L2" rel="file-8-js-L2">2</span>
+            <span class="line-number" id="file-8-js-L3" rel="file-8-js-L3">3</span>
+            <span class="line-number" id="file-8-js-L4" rel="file-8-js-L4">4</span>
+            <span class="line-number" id="file-8-js-L5" rel="file-8-js-L5">5</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-8-js-LC1">$rootScope.$on(PubNub.ngPrsEv($scope.channel), <span class="pl-st">function</span>(<span class="pl-vpf">ngEvent</span>, <span class="pl-vpf">payload</span>) {
+</div><div class="line" id="file-8-js-LC2">    $scope.$<span class="pl-s3">apply</span>(<span class="pl-st">function</span>() {
+</div><div class="line" id="file-8-js-LC3">        $scope.users <span class="pl-k">=</span> PubNub.ngListPresence($scope.channel);
+</div><div class="line" id="file-8-js-LC4">    });
+</div><div class="line" id="file-8-js-LC5">});
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/8.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-8-js">8.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>We build similar methods to when a new user appears by handling a presence event.</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_010.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-9-js-L1" rel="file-9-js-L1">1</span>
+            <span class="line-number" id="file-9-js-L2" rel="file-9-js-L2">2</span>
+            <span class="line-number" id="file-9-js-L3" rel="file-9-js-L3">3</span>
+            <span class="line-number" id="file-9-js-L4" rel="file-9-js-L4">4</span>
+            <span class="line-number" id="file-9-js-L5" rel="file-9-js-L5">5</span>
+            <span class="line-number" id="file-9-js-L6" rel="file-9-js-L6">6</span>
+            <span class="line-number" id="file-9-js-L7" rel="file-9-js-L7">7</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-9-js-LC1">PubNub.ngHereNow({
+</div><div class="line" id="file-9-js-LC2">    channel<span class="pl-k">:</span> $scope.channel
+</div><div class="line" id="file-9-js-LC3">});
+</div><div class="line" id="file-9-js-LC4">PubNub.ngHistory({
+</div><div class="line" id="file-9-js-LC5">    channel<span class="pl-k">:</span> $scope.channel,
+</div><div class="line" id="file-9-js-LC6">    count<span class="pl-k">:</span> <span class="pl-c1">500</span>
+</div><div class="line" id="file-9-js-LC7">});
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/9.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-9-js">9.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<p>We can also view the history of the channel to repopulate the previous messages sent and users list.</p>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_002.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-10-js-L1" rel="file-10-js-L1">1</span>
+            <span class="line-number" id="file-10-js-L2" rel="file-10-js-L2">2</span>
+            <span class="line-number" id="file-10-js-L3" rel="file-10-js-L3">3</span>
+            <span class="line-number" id="file-10-js-L4" rel="file-10-js-L4">4</span>
+            <span class="line-number" id="file-10-js-L5" rel="file-10-js-L5">5</span>
+            <span class="line-number" id="file-10-js-L6" rel="file-10-js-L6">6</span>
+            <span class="line-number" id="file-10-js-L7" rel="file-10-js-L7">7</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-10-js-LC1"><span class="pl-s3">$scope</span>.<span class="pl-en">publish</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() {
+</div><div class="line" id="file-10-js-LC2">    PubNub.ngPublish({
+</div><div class="line" id="file-10-js-LC3">        channel<span class="pl-k">:</span> $scope.channel,
+</div><div class="line" id="file-10-js-LC4">        message<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>[<span class="pl-pds">"</span></span> <span class="pl-k">+</span> $scope.userId <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">"</span>] <span class="pl-pds">"</span></span> <span class="pl-k">+</span> $scope.newMessage
+</div><div class="line" id="file-10-js-LC5">    });
+</div><div class="line" id="file-10-js-LC6">    $scope.newMessage <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;
+</div><div class="line" id="file-10-js-LC7">};
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/10.js" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-10-js">10.js</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<div>
+<p>Finally, we create the&nbsp;<code>publish()</code>&nbsp;method which is called whenever a user hits the send button.</p>
+</div>
+<div>
+<p>Voilà! We’re done! All we want is to see the app run on all our devices.</p>
+</div>
+</div>
+</div>
+<div>
+<h3 id="user-content-test-your-phonegap-cordova-code-on-ios-devices-or-the-emulators"><a id="user-content-test-your-phonegapcordova-code-on-ios-devices-or-the-emulators" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#test-your-phonegapcordova-code-on-ios-devices-or-the-emulators"></a>Test your PhoneGap/Cordova code on iOS devices or the emulators</h3>
+<div>
+<p>What we’ll want to do is follow 3 steps:</p>
+</div>
+<div>
+<ul>
+<li>add the chosen platform to the project</li>
+<li>build the code for the given platform</li>
+<li>run the code on the emulator or on the device</li>
+</ul>
+</div>
+<div>
+<h4 id="user-content-building-cordova-code-for-iphone"><a id="user-content-building-cordova-code-for-iphone" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#building-cordova-code-for-iphone"></a>Building cordova code for iPhone</h4>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_006.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-11-bash-L1" rel="file-11-bash-L1">1</span>
+            <span class="line-number" id="file-11-bash-L2" rel="file-11-bash-L2">2</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-11-bash-LC1">$ cordova platform add ios
+</div><div class="line" id="file-11-bash-LC2">$ cordova build ios
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/11.bash" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-11-bash">11.bash</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<p>These lines simply create the proper platform set up for the application and builds our app for a given platform.</p>
+</div>
+</div>
+<div>
+<h4 id="user-content-run-cordova-code-on-an-iphone-emulator"><a id="user-content-run-cordova-code-on-an-iphone-emulator" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#run-cordova-code-on-an-iphone-emulator"></a>Run Cordova code on an iPhone emulator</h4>
+<script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/41d423e24699d757c509_004.js"></script><link rel="stylesheet" href="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/embed-8bf0013c72fb64f0bb1bc1872b43e39e.css"><div id="gist19537882" class="gist">
+        <div class="gist-file">
+          <div class="gist-data gist-syntax">
+            
+
+
+
+    <div class="file-data">
+      <table class="lines highlight" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td class="line-numbers">
+            <span class="line-number" id="file-12-bash-L1" rel="file-12-bash-L1">1</span>
+          </td>
+          <td class="line-data">
+            <pre class="line-pre"><div class="line" id="file-12-bash-LC1">$ cordova emulate ios
+</div></pre>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+
+          </div>
+          <div class="gist-meta">
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509/raw/12.bash" style="float:right">view raw</a>
+            <a href="https://gist.github.com/ToeJamson/41d423e24699d757c509#file-12-bash">12.bash</a>
+            hosted with ❤ by <a href="https://github.com/">GitHub</a>
+          </div>
+        </div>
+</div>
+
+<div>
+<div>
+<p>This simple line will run the default ios emulator you use with Xcode.</p>
+</div>
+</div>
+<div>
+<h4 id="user-content-run-cordova-code-on-an-ios-device"><a id="user-content-run-cordova-code-on-an-ios-device" href="https://github.com/sunnycloud-consulting/pubnub-content-machine/blob/master/201502/0033_phonegap_cordova_ios_chat/0033_phonegap_cordova_ios_chat.asciidoc#run-cordova-code-on-an-ios-device"></a>Run cordova code on an iOS device</h4>
+<p style="text-align: center;"><a href="http://www.pubnub.com/blog/wp-content/uploads/2015/02/xcode.png"><img class="aligncenter size-large wp-image-10169" alt="ios chat phonegap angularjs" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/xcode-1024x863.png" height="863" width="1024"></a></p>
+<p>Building the cordova code created a full Xcode project. You can 
+simply open this project and run it on your iOS like you normally would 
+on Xcode. Remember that you need to sign your code and have a Apple 
+Developer ID to do so!</p>
+<p>As we said before, we also wrote this tutorial for <a href="http://www.pubnub.com/blog/build-a-mobile-android-chat-app-with-phonegap-cordova/">building an Android chat app using AngularJS and PhoneGap</a>. You can also check out a number of our <a href="http://www.pubnub.com/blog/tag/ios/">iOS projects and tutorials here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+						</div>
+
+						<div class="article-footer clearfix">
+              <p>
+                Read More: <a href="http://www.pubnub.com/blog/tag/angularjs-2/" rel="tag">AngularJS</a>, <a href="http://www.pubnub.com/blog/tag/chat/" rel="tag">Chat</a>, <a href="http://www.pubnub.com/blog/tag/cordova/" rel="tag">Cordova</a>, <a href="http://www.pubnub.com/blog/tag/ios/" rel="tag">iOS</a>, <a href="http://www.pubnub.com/blog/tag/mobile/" rel="tag">Mobile</a>, <a href="http://www.pubnub.com/blog/tag/phonegap/" rel="tag">PhoneGap</a>, <a href="http://www.pubnub.com/blog/tag/pubnub-data-streams/" rel="tag">PubNub Data Streams</a>              </p>
+							<p class="pull-left">
+								Categories: <a href="http://www.pubnub.com/blog/category/demos-tutorials-and-how-tos/" title="View all posts in Tutorials and Demos" rel="category tag">Tutorials and Demos</a>							</p>
+              <ul class="list-inline pull-right">
+                <li><span st_processed="yes" class="st_facebook_large" st_title="Build a Mobile iOS Chat App with AngularJS and PhoneGap" st_url="http://www.pubnub.com/blog/build-a-mobile-ios-chat-app-with-angularjs-and-phonegap/" displaytext="Facebook"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/facebook_32.png&quot;);" class="stLarge"></span></span></span></li>
+                <li><span st_processed="yes" class="st_twitter_large" st_title="Build a Mobile iOS Chat App with AngularJS and PhoneGap" st_url="http://www.pubnub.com/blog/build-a-mobile-ios-chat-app-with-angularjs-and-phonegap/" displaytext="Tweet"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/twitter_32.png&quot;);" class="stLarge"></span></span></span></li>
+                <li><span st_processed="yes" class="st_googleplus_large" st_title="Build a Mobile iOS Chat App with AngularJS and PhoneGap" st_url="http://www.pubnub.com/blog/build-a-mobile-ios-chat-app-with-angularjs-and-phonegap/" displaytext="Google +"><span class="stButton" style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;"><span style="background-image: url(&quot;http://w.sharethis.com/images/googleplus_32.png&quot;);" class="stLarge"></span></span></span></li>
+              </ul>
+						</div>
+					</article>
+
+					
+					
+					      	</div>
+      	<div class="col-sm-3 sidebar padding-top-10">
+					<h4><img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/pubnub.png" alt="PubNub" width="100"></h4>
+
+<p>
+  The PubNub Data Stream Network powers thousands of apps, streaming 50 billion messages to 150 million devices a month.
+</p>
+<p>
+  <a href="http://www.pubnub.com/" class="btn btn-primary">Learn More</a>
+</p>
+<br>
+
+<h5>Topics</h5>
+<ul class="list-unstyled list-underlines">
+  <li><a href="http://www.pubnub.com/blog/category/case-studies/">Customer Case Studies  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/support-and-faqs/">FAQs, Tips and Tricks  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/news-and-around-pubnub/">News and Around PubNub  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/uncategorized/">Other  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/news-announcements-and-around-pubnub/">PubNub News  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/pubnub-product-features/">Realtime Building Blocks  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/realtime-technology/">Realtime Technology  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/talks/">Talks and Presentations  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/demos-tutorials-and-how-tos/">Tutorials and Demos  »</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/category/use-cases/">Use Cases  »</a></li>
+
+</ul>
+
+<h5 class="margin-top">Tags</h5>
+<ul class="list-unstyled list-underlines">
+  <li><a href="http://www.pubnub.com/blog/tag/chat">Chat</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/ios">iOS</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/android">Android</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/javascript">JavaScript</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/internet-of-things-2">Internet of Things</a></li>
+
+  <li><a href="http://www.pubnub.com/blog/tag/webrtc">WebRTC</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/security">Security</a></li>
+  <li><a href="http://www.pubnub.com/blog/tag/maps-and-geolocation">Geolocation</a></li>
+</ul>
+
+<h5 class="margin-top">Trending Blog Posts</h5>
+<ul class="list-unstyled list-underlines">
+
+  <li><a href="http://www.pubnub.com/blog/creating-a-polymer-chat-app-with-material-design/">Creating a Polymer Chat App with Material Design</a></li>
+  
+  <li><a href="http://www.pubnub.com/blog/how-to-convert-your-javascript-app-into-an-android-app-with-phonegap/">Converting Your JavaScript App to an Android App w/ PhoneGap</a></li>
+  
+  <li><a href="http://www.pubnub.com/blog/build-real-time-chat-10-lines-code/">Build Real-time Chat Apps in 10 Lines of Code</a></li>
+  </ul>
+
+<h5 class="margin-top">Subscribe to Our Newsletter</h5>
+<ul class="list-unstyled">
+
+  <li>
+    <form class="form-general" action="http://www2.pubnub.com/l/28622/2014-10-02/c97vt" method="post">
+      <div class="row">
+        <div class="col-sm-12"><input name="email" placeholder="Your Email" type="email"></div>
+        <div class="col-sm-12"><input value="Sign Up" class="card btn btn-primary width-100" type="submit"></div>
+      </div>
+    </form>
+  </li>
+</ul>
+
+
+<nav class="nav-social padding-top">
+  <ul class="nav">
+    <li><a href="http://twitter.com/PubNub" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="http://www.linkedin.com/company/pubnub" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="http://www.facebook.com/PubNub" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="http://plus.google.com/116291363909949130218/posts" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+    <li><a href="http://www.pubnub.com/blog/feed/" target="_blank"><i class="fa fa-rss"></i></a></li>
+    <li><a href="http://vimeo.com/pubnub" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+    <li><a href="http://www.youtube.com/pubnubtv" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+  </ul>
+</nav>
+      	</div>
+			</div>
+
+
+		</div>
+	</section>
+
+
+<section class="red"><div class="container">
+    <div class="col-sm-12 text-center">
+        <h4 class="text-thin">
+            <span class="break">Start Building</span>
+            Realtime Apps Now!
+        </h4>
+    </div>
+    <div class="col-sm-12 text-center">
+        <a href="http://www.pubnub.com/get-started/#get-started" id="footer-cta" class="btn btn-white btn-modal btn-large text-red text-center brt">
+            Get Started
+        </a>
+    </div>
+</div></section>
+    <footer>
+      <div class="container">
+
+        <div class="row text-center">
+
+          <div class="col-sm-9 clearfix">
+            <nav class="nav-footer">
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/how-it-works/">How It Works</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/data-streams/">Data Streams</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/presence/">Presence</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/storage-and-playback/">Storage &amp; Playback</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/mobile/">Mobile Push Gateway</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/analytics/">Analytics</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/data-sync/">Data Sync</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/security/">Security</a></li>
+                <li><a href="http://www.pubnub.com/how-it-works/network/">Network</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/pricing/">Pricing</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/developers/">Developers</a></li>
+                <li><a href="http://www.pubnub.com/developers/quick-start/">Quick Start</a></li>
+                <li><a href="http://www.pubnub.com/docs/javascript/javascript-sdk.html">Docs</a></li>
+                <li><a href="http://www.pubnub.com/console/">Dev Console</a></li>
+                <li><a href="http://www.pubnub.com/community/">Community</a></li>
+                <li><a href="https://help.pubnub.com/home" target="_blank">Support</a></li>
+                <li><a href="http://www.pubnub.com/developers/demos/">Demos</a></li>
+                <li><a href="http://www.pubnub.com/technology-guides/">Technology Guides</a></li>
+                <li><a href="http://www.pubnub.com/docs/javascript/tutorial/data-push.html">Tutorials</a></li>
+                <li><a href="http://www.pubnub.com/websockets/">Websockets</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/customers/">Customers</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/company/">Company</a></li>
+                <li><a href="http://www.pubnub.com/company/team/">Team</a></li>
+                <li><a href="http://www.pubnub.com/company/leadership/">Leadership</a></li>
+                <li><a href="http://www.pubnub.com/press/">Press &amp; News</a></li>
+                <li><a href="http://www.pubnub.com/events/">Events</a></li>
+                <li><a href="http://www.pubnub.com/company/careers/">Careers</a></li>
+                <li><a href="http://www.pubnub.com/company/contact-us/">Contact Us</a></li>
+                <li><a href="#pubnub-music-video" class="btn-modal">Music Video</a></li>
+              </ul>
+              <ul class="nav">
+                <li class="first"><a href="http://www.pubnub.com/blog/">Blog</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-sm-3">
+            <nav class="nav-social pull-right">
+              <ul class="nav">
+                <li><a href="http://www.pubnub.com/community" target="_blank"><i class="fa fa-users"></i></a></li>
+                <li><a href="http://twitter.com/PubNub" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="http://www.linkedin.com/company/pubnub" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="http://www.facebook.com/PubNub" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="http://plus.google.com/116291363909949130218/posts" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="http://www.pubnub.com/blog/feed/" target="_blank"><i class="fa fa-rss"></i></a></li>
+                <li><a href="http://vimeo.com/pubnub" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+                <li><a href="https://www.youtube.com/c/Pubnub" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+            </nav>
+            <nav class="nav-footer pull-right ">
+              <ul class="nav text-right">
+                <li><small>© 2009-2015 PubNub, Inc.</small></li>
+                <li><a href="http://www.pubnub.com/terms-and-conditions/">Terms &amp; Conditions</a></li>
+                <li><a href="http://www.pubnub.com/privacy-policy/">Privacy Policy</a></li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+
+    <div id="get-started" class="modal-container">
+      <div class="form-wrap form-wrap-modal hide-labels">
+        <a href="http://www.pubnub.com/" class="close"><i class="fa fa-times-circle"></i></a>
+        <h3>Get Started</h3>
+        <div id="error-codes" class="alert alert-danger" style="display:none;"></div>
+<form id="sign-up-form-partial" action="https://admin.pubnub.com/api/users" method="POST" class="form-general">
+        <label for="first-name">First Name</label>
+        <input name="first" id="first-name" placeholder="First Name *" required="" type="text">
+        <label for="last-name">Last Name</label>
+        <input name="last" id="last-name" placeholder="Last Name *" required="" type="text">
+        <label for="company">Company</label>
+        <input name="company" id="company" placeholder="Company *" required="" type="text">
+        <label for="phone">Phone Number</label>
+        <input name="phone" id="phone" placeholder="Phone *" required="" type="text">
+        <label for="email-2">Email</label>
+        <input value="a3992960@drdrb.com" name="email" id="email-2" placeholder="Email *" required="" type="email">
+        <label for="password">Password</label>
+        <input name="password" id="password" placeholder="Password *" required="" type="password">
+        <select style="color:#666;-webkit-box-shadow: inset 0 0 4px 0 rgba(0,0,0,0.3);
+        box-shadow: inset 0 0 4px 0 rgba(0,0,0,0.3);-webkit-transition: all 0.15s ease-in-out; transition: all 0.15s ease-in-out;background : #fff;height : 41px;border: 1px solid #efefef;" name="customer_selected_use_case" class="width-100 padding-10 margin-bottom-10">
+          <option value="" disabled="disabled" selected="selected">INDUSTRY</option>          
+          <option value="Chat/Social">Chat/Social</option>
+          <option value="Financial Data Streams">Financial Data Streams</option>
+          <option value="Multi-player Games">Multi-player Games</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Transportation"> Transportation</option>
+          <option value="Internet of Things">Internet of Things</option>
+          <option value="WebRTC">WebRTC</option>
+          <option value="Other">Other</option>
+        </select>
+        <input value="1" name="xsite" type="hidden">        
+        <p>By clicking <span id="create_account_text">Create Free Account</span>, you agree to <a href="http://www.pubnub.com/terms-and-conditions/" target="_blank">PubNub's terms and conditions</a>.</p>
+        <input value="Create Free Account" id="create_account_btn" class="btn btn-primary" type="submit">
+        <div id="utms">
+
+            
+            
+                <input id="utm_source" name="utm_source" value="" type="hidden">
+
+            
+                <input id="utm_medium" name="utm_medium" value="" type="hidden">
+
+            
+                <input id="utm_content" name="utm_content" value="" type="hidden">
+
+            
+                <input id="utm_campaign" name="utm_campaign" value="" type="hidden">
+
+            
+                <input id="utm_keyword" name="utm_keyword" value="" type="hidden">
+
+            
+        </div>
+</form>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+    <div id="pubnub-music-video" class="modal-container">
+      <div class="form-wrap form-wrap-modal hide-labels">
+        <a href="http://www.pubnub.com/" class="close"><i class="fa fa-times-circle"></i></a>
+        <iframe src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/20048255.htm" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="100%" width="100%"></iframe>
+      </div>
+      <div class="modal-backdrop"></div>
+    </div>
+
+    <script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/pubnub-3.js"></script>
+        <script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/main.js"></script>
+        <script type="text/javascript">
+      mixpanel.track('Page Viewed', {
+        'page' : window.location.pathname
+      });
+    </script>
+    
+    
+    
+
+    <div id="loading">
+      <div class="mask"></div>
+      <div class="indication">
+        <img src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/loading.gif">
+        <h3 class="text-red">Loading...</h3>
+      </div>
+    </div>
+  <script type="text/javascript">
+  /* <![CDATA[ */
+  var google_conversion_id = 1009365105;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+  </script>
+  <script type="text/javascript" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/conversion.js">
+  </script><iframe name="google_conversion_frame" title="Google conversion frame" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/a.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" frameborder="0" height="13" width="300">&lt;img
+ height="1" width="1" border="0" alt="" 
+src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1009365105/?frame=0&amp;random=1425397160841&amp;cv=7&amp;fst=1425397160841&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1024&amp;u_w=1280&amp;u_ah=984&amp;u_aw=1280&amp;u_cd=24&amp;u_his=5&amp;u_tz=60&amp;u_java=true&amp;u_nplug=19&amp;u_nmime=102&amp;frm=0&amp;url=http%3A//www.pubnub.com/blog/build-a-mobile-ios-chat-app-with-angularjs-and-phonegap/&amp;ref=http%3A//www.pubnub.com/blog/category/demos-tutorials-and-how-tos/&amp;vis=1"
+ /&gt;</iframe>
+  <noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1009365105/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+  </noscript>
+  <script type="text/javascript">var bf_url="pubnub";(function(){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//d2sdf28wg0skh3.cloudfront.net/bf.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script><script src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/apps" type="text/javascript"></script>
+  
+
+<div style="position: absolute; top: -1999px; left: -1988px;" id="stcpDiv">ShareThis Copy and Paste</div><iframe style="display:none;" scrolling="no" src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/getSegment.htm" name="stSegmentFrame" id="stSegmentFrame" frameborder="0" height="0px" width="0px"></iframe><div style="display: none;" class="stwrapper stwrapper4x" id="stwrapper"><iframe src="Build%20a%20Mobile%20iOS%20Chat%20App%20with%20AngularJS%20and%20PhoneGap%20-%20PubNub_files/index.htm" scrolling="no" name="stLframe" class="stLframe" id="stLframe" allowtransparency="true" frameborder="0"></iframe></div><div onclick="javascript:stWidget.closeWidget();" id="stOverlay"></div></body></html>

@@ -1,0 +1,28 @@
+updateMenuWithUser({
+  "result": {
+    "created": 1397676859,
+    "expires": 1571584795,
+    "modified": 1413818395,
+    "status": 1,
+    "storage": "{}",
+    "token": "019e4cc8-53de-4b56-a52c-114cb95bf8aa",
+    "user": {
+      "created": 1380893958,
+      "email": "a3992960@drdrb.com",
+      "id": 221605,
+      "modified": null,
+      "properties": {
+        "company": "tr",
+        "first": "t",
+        "last": "r",
+        "utm_campaign": "Web",
+        "utm_content": "Web",
+        "utm_keyword": "Web",
+        "utm_medium": "Web",
+        "utm_source": "Web"
+      },
+      "status": 4
+    },
+    "user_id": 221605
+  }
+})
