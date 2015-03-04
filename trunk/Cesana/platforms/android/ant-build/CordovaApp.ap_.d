@@ -34,11 +34,17 @@ D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\cordova_plugi
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\css \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\img \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\index.html \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\plugins \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\css\index.css \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\css\style.css \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\img\logo.png \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery\jquery-mobile \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery\jquery-mobile\demos \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery\jquery-mobile\demos\css \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery\jquery-mobile\demos\css\themes \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\jquery\jquery-mobile\demos\css\themes\default \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app_ok.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\index.js \

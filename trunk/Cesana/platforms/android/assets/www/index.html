@@ -10,7 +10,7 @@
 <link href='http://fonts.googleapis.com/css?family=Gorditas:700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="onLoad();">
 <header>
 <h1>Apri cancello v1.0</h1>
 </header>
@@ -24,6 +24,33 @@
 </section>
 <footer></footer>
 <script src="js/pubnub-3.7.1.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
 <script src="js/app.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+            function onLoad()
+            {
+               document.addEventListener("deviceready", onDeviceReady, true);
+            }
+            function showConfirm() {
+                navigator.notification.alert(
+                'Do you really want to exit?', // message
+                exitFromApp, // callback to invoke with index of button pressed
+                'Exit', // title
+                'OK' // buttonLabels
+                );
+            } 
+
+            function exitFromApp()
+            {
+                if (navigator.app) {
+                    navigator.app.exitApp();
+                }
+                else if (navigator.device) {
+                    navigator.device.exitApp();
+                }
+            }
+        </script>
+        <button name="buttonClick" onclick="showConfirm()">Chiudi!</button>
 </body>
 </html>
