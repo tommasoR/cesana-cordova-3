@@ -1,3 +1,8 @@
 pagina web che simula i  messaggi notificati ad arduino
 
 clientSimuArduino_chanel_arduino.html
+
+
+pagina da cui ho ricavato l'esempio di chat
+
+https://github.com/pubnub/super-simple-chat
