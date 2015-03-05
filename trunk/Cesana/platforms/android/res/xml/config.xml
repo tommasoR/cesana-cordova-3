@@ -52,10 +52,10 @@
     <description>
         Domotica
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="tommaso.ruggiero@gmail.com" href="http://cordova.io">
         Apache Cordova TOM Team
     </author>
-    <icon src="res/drawable/icon.png" />
+    <icon src="img/logo.png" />
     <content src="index.html" />
     <access origin="*" />
 </widget>
