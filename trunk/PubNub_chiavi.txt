@@ -5,3 +5,14 @@ publish_key:   'pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695'
 chiavi utlizzate per la demo della chat che ho rilutilizzato perchè permettono l'uso della funzione presence di pubnub
 
 channel = 'cancello_client_arduino';
+
+
+messaggi esempi:
+
+{"avatar": "arduino color-3", "text": "aperto"}
+
+
+
+{"avatar": "face-14 color-3", "text": "aperto"}
+
+

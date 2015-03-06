@@ -139,6 +139,9 @@ content: "\54";
 .face-15:before {
 content: "\24";
 }
+.arduino:before {
+content: "\41";
+}
 .color-1 {
 color: #393b79;
 }
