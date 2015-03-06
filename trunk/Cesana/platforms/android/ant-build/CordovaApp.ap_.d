@@ -35,6 +35,7 @@ D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app_ok.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\index.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\pubnub-3.7.1.min.js \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\pubnub.min.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\plugins\org.apache.cordova.battery-status \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\plugins\org.apache.cordova.camera \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\plugins\org.apache.cordova.contacts \
