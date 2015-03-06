@@ -24,12 +24,14 @@ output.innerHTML = '<p><i class="' + m.avatar + '"></i><span>' + m.text.replace(
 },
 presence: function(m){
 if(m.occupancy > 1) {
-presence.textContent = m.occupancy + ' people online';
+presence.textContent = m.occupancy + ' dispositivi online';
 } else {
-presence.textContent = 'Nobody else is online';
+presence.textContent = 'Nessuno online';
 }
 }
+
 });
+
 p.bind('keyup', input, function(e) {
 (e.keyCode || e.charCode) === 13 && publish()
 });
@@ -42,4 +44,6 @@ message : {avatar: avatar.className, text: input.value},
 x : (input.value='')
 });
 }
+
+
 })();

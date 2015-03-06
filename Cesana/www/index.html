@@ -49,6 +49,10 @@
                 else if (navigator.device) {
                     navigator.device.exitApp();
                 }
+                
+
+                p.unsubscribe({channel : channel});
+
             }
         </script>
         <button name="bapri" id="bapri" onclick="publish()">Apri</button>
