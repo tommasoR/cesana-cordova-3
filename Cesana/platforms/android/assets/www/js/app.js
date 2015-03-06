@@ -44,9 +44,4 @@ message : {avatar: avatar.className, text: input.value},
 x : (input.value='')
 });
 }
-function apri(){
-     showConfirm();
-}
-
-
 })();
