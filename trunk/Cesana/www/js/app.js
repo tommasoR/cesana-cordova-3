@@ -13,7 +13,7 @@ var p = PUBNUB.init({
 //publish_key: 'pub-c-b13eada3-8a9c-4a20-9167-79d76f4d5767',
 subscribe_key: 'sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe',
 publish_key:   'pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695',
-uuid: avatar.className
+uuid: PUBNUB.uuid()//avatar.className
 });
 p.subscribe({
 channel : channel,
@@ -44,6 +44,4 @@ message : {avatar: avatar.className, text: input.value},
 x : (input.value='')
 });
 }
-
-
 })();
