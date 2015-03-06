@@ -4,13 +4,15 @@ input = PUBNUB.$('input'),
 button = PUBNUB.$('button'),
 avatar = PUBNUB.$('avatar'),
 presence = PUBNUB.$('presence');
-var channel = 'cancello_client_arduino';
+var channel = 'cancello_client_arduino';// 'mchat';
 // Assign a random avatar in random color
 // avatar.className = 'face-' + ((Math.random() * 15 + 1) >>> 0) + ' color-' + ((Math.random() * 10 + 1) >>> 0);
 avatar.className = 'face-14 color-4';
 var p = PUBNUB.init({
-subscribe_key: 'sub-c-0f8b63e4-f56a-11e3-a672-02ee2ddab7fe',
-publish_key: 'pub-c-b13eada3-8a9c-4a20-9167-79d76f4d5767',
+//subscribe_key: 'sub-c-0f8b63e4-f56a-11e3-a672-02ee2ddab7fe',
+//publish_key: 'pub-c-b13eada3-8a9c-4a20-9167-79d76f4d5767',
+subscribe_key: 'sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe',
+publish_key:   'pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695',
 uuid: avatar.className
 });
 p.subscribe({
