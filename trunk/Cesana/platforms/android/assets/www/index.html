@@ -9,21 +9,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Gorditas:700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temp', 80]
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 40 );
+          chart.draw(data, options);
+        }, 13000);
+       
+      }
+    </script>
+
+
 </head>
 <body onload="onLoad();">
 <header>
 <h1>Cesana Home v1.0</h1>
 </header>
 <section id="main" role="main">
+    <p id="presence"></p>
+    <div id="chart_div"></div>
 <div id="chat">
 <i id="avatar" class="face12"></i><input type="text" id="input" placeholder="Type your message..." value="apri">
 </div>
 <button id="button">Invia messaggio</button>
-<p id="presence"></p>
+<button id="bapri">apri</button>
+<button id="btemp" onclick="getTemp()">temp</button>
 <div id="output"></div>
 </section>
-<footer></footer>
-<script src="js/pubnub-3.7.1.min.js"></script>
+    <footer>
+         <button name="buttonClick" onclick="showConfirm()">Chiudi!</button>
+    </footer>
+<script src="js/pubnub.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="js/app.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -43,6 +80,7 @@
 
             function exitFromApp()
             {
+                scollegati();
                 if (navigator.app) {
                     navigator.app.exitApp();
                 }
@@ -50,13 +88,8 @@
                     navigator.device.exitApp();
                 }
                 
-
-                p.unsubscribe({channel : channel});
-
             }
-            
         </script>
-        <button id="bapri" >Apri</button>
-        <button name="buttonClick" onclick="showConfirm()">Chiudi!</button>
+         
 </body>
 </html>

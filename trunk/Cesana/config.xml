@@ -7,7 +7,7 @@
     <author email="tommaso.ruggiero@gmail.com" href="http://cordova.io">
         Apache Cordova TOM Team
     </author>
-    <icon src="img/logo.png" />
+    <icon src="img/logo.png"/>
     <content src="index.html"/>
     <access origin="*"/>
     
