@@ -6,3 +6,12 @@ clientSimuArduino_chanel_arduino.html
 pagina da cui ho ricavato l'esempio di chat
 
 https://github.com/pubnub/super-simple-chat
+
+
+
+editor web per debug javascript
+http://jsfiddle.net/api/post/library/pure/
+
+
+oggetto che visualizza la temperatura
+//https://google-developers.appspot.com/chart/interactive/docs/gallery/gauge#Configuration_Options
