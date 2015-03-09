@@ -9,38 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Gorditas:700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/style.css">
-
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["gauge"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['Temp', 80]
-        ]);
-
-        var options = {
-          width: 400, height: 120,
-          redFrom: 90, redTo: 100,
-          yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          data.setValue(0, 1, 40 );
-          chart.draw(data, options);
-        }, 13000);
-       
-      }
-    </script>
-
-
 </head>
 <body onload="onLoad();">
 <header>
@@ -63,6 +31,40 @@
 <script src="js/pubnub.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script src="js/app.js"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+      //gestione temperatura 
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temp', 15]
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          min: 0, max:40,
+          redFrom: 30, redTo: 40,
+          yellowFrom:23, yellowTo: 30,
+          greenFrom:18, greenTo: 23,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, temperatura);
+          chart.draw(data, options);
+        }, 1000);
+       
+      }
+    </script>
+
 <script type="text/javascript" charset="utf-8">
 
             function onLoad()

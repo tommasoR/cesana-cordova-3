@@ -25,7 +25,7 @@ callback : function(m) {
 output.innerHTML = '<p><i class="' + m.avatar + '"></i><span>' + m.text.replace( /[<>]/ig, '' ) + '</span></p>' + output.innerHTML;
 //output.innerHTML = '<p><i class="face-14 color-4"></i><span>' + m.replace( /[<>]/ig, '' ) + '</span></p>' + output.innerHTML;
 //output.innerHTML = '<p><i class="face-14 color-4"></i><span>' + m + '</span></p>' + output.innerHTML;
-temperatura=65;
+temperatura=23;
 },
 presence: function(m){
 if(m.occupancy > 1) {
