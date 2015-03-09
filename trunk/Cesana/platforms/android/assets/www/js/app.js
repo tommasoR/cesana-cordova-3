@@ -1,5 +1,6 @@
 var p;
 var channel;
+var temperatura=25.12;
 (function () {  
 var output = PUBNUB.$('output'),
 input = PUBNUB.$('input'),
@@ -24,6 +25,7 @@ callback : function(m) {
 output.innerHTML = '<p><i class="' + m.avatar + '"></i><span>' + m.text.replace( /[<>]/ig, '' ) + '</span></p>' + output.innerHTML;
 //output.innerHTML = '<p><i class="face-14 color-4"></i><span>' + m.replace( /[<>]/ig, '' ) + '</span></p>' + output.innerHTML;
 //output.innerHTML = '<p><i class="face-14 color-4"></i><span>' + m + '</span></p>' + output.innerHTML;
+temperatura=65;
 },
 presence: function(m){
 if(m.occupancy > 1) {
