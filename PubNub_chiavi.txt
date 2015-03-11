@@ -8,11 +8,27 @@ channel = 'cancello_client_arduino';
 
 
 messaggi esempi:
+----------------------------------------------
+da arduino
 
-{"avatar": "arduino color-3", "text": "aperto"}
+per temperatura:
+{"avatar": "Arduino_temperatura", "text": "18.41"}
+
+per comando eseguito:
+{"avatar": "arduino color-2", "text": "Aperto cancello"}
+
+
+ALLARME apertura porta:
+{"avatar": "arduino color-10", "text": "Porta aperta"}
+
+
+---------------------------------------------
+
+
+MEssaggi inviati da device mobile:
+ {"avatar":"face-14 color-1","text":"Apri"}
 
 
 
-{"avatar": "face-14 color-3", "text": "aperto"}
 
 
