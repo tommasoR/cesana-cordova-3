@@ -6,7 +6,7 @@ var output = PUBNUB.$('output'),
 input = PUBNUB.$('input'),
 button = PUBNUB.$('button'),
 avatar = PUBNUB.$('avatar'),
-bapri =PUBNUB.$('bapri'),
+//bapri =PUBNUB.$('bapri'),
 presence = PUBNUB.$('presence');
 channel = 'cancello_client_arduino';// 'mchat';
 // Assign a random avatar in random color
@@ -34,14 +34,13 @@ callback : function(m) {
 }
 ,
 presence: function(m){
-if(m.occupancy > 1) {
-//var myDate = new Date();    
-presence.textContent = m.occupancy + ' dispositivi online ';//+ myDate.toString();
-} else {
-presence.textContent = 'Nessuno online';
+    if(m.occupancy > 1) {
+    //var myDate = new Date();    
+    presence.textContent = m.occupancy + ' dispositivi online ';//+ myDate.toString();
+    } else {
+    presence.textContent = 'Nessuno online';
+    }
 }
-}
-
 });
 
 p.bind('keyup', input, function(e) {
@@ -77,6 +76,13 @@ function scollegati(){
 function apri(){
     p.publish({
         channel : channel,
-        message : {avatar: avatar.className, text: 'Apri'}
-});
+        message : {avatar: avatar.className, text: 'ApriCancello'}
+    });
+}
+
+function apriPortoncino(){
+    p.publish({
+        channel : channel,
+        message : {avatar: avatar.className, text: 'OpenPortoncino'}
+    });
 }
