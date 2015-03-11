@@ -11,22 +11,26 @@ messaggi esempi:
 ----------------------------------------------
 da arduino
 
-per temperatura:
+per temperatura:(comando che nona appare nei log perchè inviato con una certa cadenza logica push)
 {"avatar": "Arduino_temperatura", "text": "18.41"}
 
 per comando eseguito:
 {"avatar": "arduino color-2", "text": "Aperto cancello"}
+{"avatar": "arduino color-2", "text": "Aperto portoncini"}
 
 
-ALLARME apertura porta:
-{"avatar": "arduino color-10", "text": "Porta aperta"}
+ALLARME apertura porta!!!!!!:
+{"avatar": "arduino color-10", "text": "Porta di casa aperta!!!"}
 
 
 ---------------------------------------------
 
 
 MEssaggi inviati da device mobile:
- {"avatar":"face-14 color-1","text":"Apri"}
+
+ {"avatar":"face-14 color-1","text":"ApriCancello"}
+
+ {"avatar":"face-14 color-1","text":"OpenPortoncino"}
 
 
 
