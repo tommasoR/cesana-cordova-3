@@ -6,6 +6,10 @@ chiavi utlizzate per la demo della chat che ho rilutilizzato perchè permettono l
 
 channel = 'cancello_client_arduino';
 
+console:
+http://www.pubnub.com/console/
+
+
 
 messaggi esempi:
 ----------------------------------------------
