@@ -26,7 +26,7 @@
 <div id="output"></div>
 </section>
     <footer>
-         <button name="buttonClick" onclick="showConfirm(); return false;">Chiudi</button>
+         <button name="buttonClick" onclick="chiudi(); return false;">Chiudi</button>
     </footer>
 <script src="js/pubnub.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
@@ -53,7 +53,7 @@
                 );
             } 
 
-            function exitFromApp(buttonIndex)
+            function exitFromApp()
             {
                 //alert('You selected button ' + buttonIndex);
                 scollegati();
@@ -63,6 +63,13 @@
                 else if (navigator.device) {
                     navigator.device.exitApp();
                 } 
+            }
+            function chiudi(){
+                var x=window.confirm("Esci?");
+                if (x)
+                    exitFromApp();
+                /*else
+                    window.alert("Too bad")*/
             }
         </script>
         

@@ -1,9 +1,26 @@
+/*
+  DHCP-based
+ 
+ This sketch uses the DHCP extensions to the Ethernet library
+ to get an IP address via DHCP and print the address obtained.
+ using an Arduino Wiznet Ethernet shield.
+ 
+ Circuit:
+ * Ethernet shield attached to pins 10, 11, 12, 13
+                             and pin 4 dor sd card
+ created 12 Marzo 2015
+ modified X Apr 2015
+ by Tom Rugg
+ doc:
+ http://ismanettoneblog.altervista.org/blog/lezione-13-arduino-si-connette-ad-internet-shield-ethernet-ufficiale/
+ */
+ 
 #include <SPI.h>
 #include <Ethernet.h>
 #include "string.h"
 #include "iotconnector.h"
- 
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+
+byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 };
  
 char pubkey[] = "pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695";char subkey[] = "sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe";char channel[] = "cancello_client_arduino";char uuid[] = "arduino color-3";
  
@@ -25,6 +42,9 @@ unsigned long previousMillisTemp = 0L;
  
 void initialize(){
   Serial.begin(9600);
+   while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo only
+   }
   Serial.println("Serial set up");
  
   while (!Ethernet.begin(mac)) {
@@ -54,7 +74,7 @@ void loop()
   //Publish
   //arduino.send(channel,"\"Hey There\"");
   //esempio messaggio {"avatar": "arduino color-3", "text": "aperto"}
-  arduino.send(channel,"{\"avatar\": \"arduino color-3\", \"text\": \"aperto\"}");
+  arduino.send(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
    
   //Subscribe
   returnmessage = arduino.connect(channel);
