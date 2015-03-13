@@ -36,7 +36,7 @@ String iotbridge::connect(const char *channel){
   int i = 0;
   PubSubClient *pclient = PubNub.subscribe(channel);
 	if (!pclient) {
-		return 0;
+		return "0";
 	}
   while (pclient->wait_for_data()) {
 		char c = pclient->read();
