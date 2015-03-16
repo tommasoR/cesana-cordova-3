@@ -8,6 +8,12 @@
  Circuit:
  * Ethernet shield attached to pins 10, 11, 12, 13
                              and pin 4 dor sd card
+                             
+ Sensore di temperatura LM35 su pin A3
+ Sensore NC su    pin ?
+ Rele cancello    pin
+ Relé cancelletti pin
+ 
  created 12 Marzo 2015
  modified X Apr 2015
  by Tom Rugg
@@ -29,6 +35,19 @@ iotbridge arduino;
 //Variabili
 unsigned long currentMillis = 0L;
 unsigned long previousMillisTemp = 0L;
+unsigned long premutoPulsanteCancelloMillis = 0L;
+
+//rele
+#define PIN_RELE_CANCELLO    2
+#define PIN_RELE_CANCELLETTI 3
+
+/* contatto magnetico normalmente chiuso con resistenza di pull-up interna
+          contatto    NC
+                  .--o---o--o GND
+                  |    /\
+ Pin 8 o-----------
+ */
+#define NC_CONT_1  8
 
 /* Sensor test sketch
     for more information see http://www.ladyada.net/make/logshield/lighttemp.html
@@ -60,8 +79,19 @@ void do_something(String value){
   //int avatarEsist = stringOne.indexOf('avatar');
   //int comando = stringOne.indexOf('ApriCancello');
 }
+
 void setup()
 {
+  // setto i contatti NC 
+  pinMode(NC_CONT_1, INPUT);           // set pin to input
+  digitalWrite(NC_CONT_1, HIGH);       // turn on pullup resistors
+  
+  // initialize the digital pin's as an output.
+  pinMode(PIN_RELE_CANCELLO, OUTPUT);            // Relay 1 
+  digitalWrite(PIN_RELE_CANCELLO, LOW);
+  pinMode(PIN_RELE_CANCELLETTI, OUTPUT);         // Relay 2
+  digitalWrite(PIN_RELE_CANCELLETTI, LOW);
+  
   initialize();
   arduino.init( pubkey, subkey, uuid);
 }
@@ -81,8 +111,26 @@ void loop()
   //callback function of sorts, to work with the received message
   do_something(returnmessage);
   Serial.println();
+  apriCancello();
+  readTemp();
+  apriCancelletto();
+  readSensori();
 }
 
+void readSensori(){
+}
+
+void apriCancello(){
+  if((premutoPulsanteCancelloMillis + 2000 > currentMillis) && (currentMillis > premutoPulsanteCancelloMillis)){
+    digitalWrite(PIN_RELE_CANCELLO, HIGH);
+  } else {
+    premutoPulsanteCancelloMillis = 0L;
+  }
+}
+
+void apriCancelletto(){
+  
+}
 
 void readTemp() {
   LM35sensor += analogRead(tempPin);
