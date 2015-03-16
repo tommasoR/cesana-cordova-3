@@ -1,6 +1,8 @@
 var p;
 var channel;
-var temperatura=0;
+var temperatura = parseFloat("0.0");
+var myDate = new Date();
+var pollingArduinoTemp =  new Date(2007, 3, 4); 
 (function () {  
 var output = PUBNUB.$('output'),
 input = PUBNUB.$('input'),
@@ -23,9 +25,9 @@ p.subscribe({
 channel : channel,
 callback : function(m) {
     if (m.avatar === 'Arduino_temperatura'){
-        temperatura=m.text;
-    } else {   
-    var myDate = new Date();
+        temperatura=parseFloat(m.text);
+    } else if (m.text !=='get_temperatura'){   
+    myDate = new Date();
     //var currentTime_format= currentTime.getHours()+':'+currentTime.getMinutes();
     output.innerHTML = '<p><i class="' + m.avatar + '"></i><span>' + m.text.replace( /[<>]/ig, '' ) +'<p style="font-size:10px">' + myDate.toString() +'</p></span></p>' + output.innerHTML;
     //output.innerHTML = '<p><i class="face-14 color-4"></i><span>' + m.replace( /[<>]/ig, '' ) + '</span></p>' + output.innerHTML;
@@ -85,4 +87,18 @@ function apriPortoncino(){
         channel : channel,
         message : {avatar: avatar.className, text: 'OpenPortoncino'}
     });
+}
+
+
+function getTemperaturaNoLog(){
+    myDate = new Date();
+    //alert(myDate.getTime());
+    if (myDate.getTime() - pollingArduinoTemp.getTime() > 60000){
+        pollingArduinoTemp = new Date();
+        p.publish({
+            channel : channel,
+            message : {avatar: avatar.className, text: 'get_temperatura'}
+        });
+        //temperatura+=parseFloat('2.00');
+    }
 }
