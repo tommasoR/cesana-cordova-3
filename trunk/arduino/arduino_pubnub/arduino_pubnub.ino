@@ -10,9 +10,9 @@
                              and pin 4 dor sd card
                              
  Sensore di temperatura LM35 su pin A3
- Sensore NC su    pin ?
- Rele cancello    pin
- Relé cancelletti pin
+ Sensore NC su    pin 8
+ Rele cancello    pin 2
+ Relé cancelletti pin 3
  
  created 12 Marzo 2015
  modified X Apr 2015
@@ -121,10 +121,11 @@ void readSensori(){
 }
 
 void apriCancello(){
-  if((premutoPulsanteCancelloMillis + 2000 > currentMillis) && (currentMillis > premutoPulsanteCancelloMillis)){
+  if((premutoPulsanteCancelloMillis > 0) && (premutoPulsanteCancelloMillis + 2000 > currentMillis) && (currentMillis >= premutoPulsanteCancelloMillis)){
     digitalWrite(PIN_RELE_CANCELLO, HIGH);
-  } else {
+  } else if (premutoPulsanteCancelloMillis > 0){
     premutoPulsanteCancelloMillis = 0L;
+    digitalWrite(PIN_RELE_CANCELLO, LOW);
   }
 }
 
@@ -153,6 +154,15 @@ void calcolaTemp(){
     Serial.print(volts); Serial.println(" volts");
     // now print out the temperature
     Serial.print(temperatureC); Serial.println(" degrees C");
+    if(temperatureC > 45){
+      allarmeMail("Temperatura in ingresso", "Superati i 45 gradi");
+    }
+}
+
+void allarmeMail(String sensore, String messaggio){
+  /*
+  http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
+  */
 }
 /*
 - See more at: file:///D:/googleCode/cesana-cordova-3/arduino/doc/Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub.htm#sthash.qsLr0u6g.dpuf
