@@ -29,7 +29,16 @@
 byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 };
  
 char pubkey[] = "pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695";char subkey[] = "sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe";char channel[] = "cancello_client_arduino";char uuid[] = "arduino color-3";
- 
+
+//variabili per pushingbox.com accesso con account gmail
+char serverName[] = "api.pushingbox.com";
+char DEVID1[] = "vD6CBA2419476BA2";
+// Initialize the Ethernet client library
+// with the IP address and port of the server
+// that you want to connect to (port 80 is default for HTTP):
+EthernetClient client;
+// fine 
+
 iotbridge arduino;
 
 //Variabili
@@ -71,6 +80,8 @@ void initialize(){
     delay(1000);
   }
   Serial.println("Ethernet set up");
+  Serial.print("My IP address: ");
+  Serial.println(Ethernet.localIP());
 }
  
 void do_something(String value){
@@ -80,8 +91,7 @@ void do_something(String value){
   //int comando = stringOne.indexOf('ApriCancello');
 }
 
-void setup()
-{
+void setup() {
   // setto i contatti NC 
   pinMode(NC_CONT_1, INPUT);           // set pin to input
   digitalWrite(NC_CONT_1, HIGH);       // turn on pullup resistors
@@ -95,6 +105,7 @@ void setup()
   initialize();
   arduino.init( pubkey, subkey, uuid);
 }
+
  
 void loop()
 {
@@ -155,14 +166,32 @@ void calcolaTemp(){
     // now print out the temperature
     Serial.print(temperatureC); Serial.println(" degrees C");
     if(temperatureC > 45){
-      allarmeMail("Temperatura in ingresso", "Superati i 45 gradi");
+      allarmeMailPushingbox("Temperatura in ingresso", "Superati i 45 gradi");
     }
 }
 
-void allarmeMail(String sensore, String messaggio){
+void allarmeMailPushingbox(String sensore, String messaggio){
   /*
   http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
   */
+    client.stop();
+    Serial.println("connecting pushingbox...");
+    if (client.connect(serverName, 80)) {
+      Serial.println("connected");
+      Serial.println("sendind request");
+      client.print("GET /pushingbox?devid=");
+      client.print(DEVID1);
+      client.print("&sensore=lm35");
+      client.print("&messaggio=ciao");
+      client.println(" HTTP/1.1");
+      client.print("Host: ");
+      client.println(serverName);
+      client.println("User-Agent: Arduino");
+      client.println();
+    }
+    else {
+      Serial.println("connection failed");
+    }
 }
 /*
 - See more at: file:///D:/googleCode/cesana-cordova-3/arduino/doc/Connect%20Arduino%20to%20PubNub%20in%202%20Steps%20-%20PubNub.htm#sthash.qsLr0u6g.dpuf
