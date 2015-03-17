@@ -147,7 +147,7 @@ void apriCancelletto(){
 void readTemp() {
   LM35sensor += analogRead(tempPin);
   LM35sensor /=2;
-  if(currentMillis - previousMillisTemp > 5000) {
+  if(currentMillis - previousMillisTemp > 5000) {//portare a un minuto
     // save the last time control
     previousMillisTemp = currentMillis;
     calcolaTemp();
@@ -182,7 +182,8 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client.print("GET /pushingbox?devid=");
       client.print(DEVID1);
       client.print("&sensore=lm35");
-      client.print("&messaggio=ciao");
+      client.print("&messaggio=");
+      client.print(messaggio);
       client.println(" HTTP/1.1");
       client.print("Host: ");
       client.println(serverName);
