@@ -34,6 +34,7 @@ D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\img\logo.png 
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\app_ok.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\index.js \
+D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\jsapi.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\pubnub-3.7.1.min.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\pubnub-3.7.8.js \
 D:\googleCode\cesana-cordova-3\Cesana\platforms\android\assets\www\js\pubnub.js \

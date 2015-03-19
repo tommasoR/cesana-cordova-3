@@ -37,12 +37,38 @@
             {
                //document.addEventListener("deviceready", onDeviceReady, true);
                document.addEventListener("deviceready", onDeviceReady, false);//per gestire info dispositivo
+               
+               /*gestione notifiche locali
+                * http://plugins.cordova.io/#/package/com.cordova.plugin.localnotificationplugin
+                * @returns {undefined}
+                */
+              // document.addEventListener("receivedLocalNotification", onReceivedLocalNotification, false);
             }
+            /*function onReceivedLocalNotification(){
+                alert('onReceivedLocalNotification');
+            }*/
             function onDeviceReady() {
                 // http://plugins.cordova.io/#/package/org.apache.cordova.device
                //alert(device.cordova);
                //alert(device.uuid);
+ //https://github.com/Wizcorp/phonegap-plugin-localNotifications   
+ /*
+               window.localNotification.add("GAME_NOTIFICATION", {
+    seconds: 30,
+    message: "This is an example",
+    badge: 1},successCb(),failureCb());*/
             }
+            
+ /*            var successCb = function () {
+// Generic callback function
+alert("API success");
+}
+var failureCb = function (error) {
+// Generic callback function
+alert(error);
+}
+*/
+
             function showConfirm() {
                 navigator.notification.alert(
                 'Vuoi veramente uscire?', // message
@@ -72,7 +98,8 @@
             }
         </script>
         
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>        
+<!--script type="text/javascript" src="https://www.google.com/jsapi"></script-->
+<script type="text/javascript" src="js/jsapi.js"></script>
 <script type="text/javascript">
       //gestione temperatura 
       //https://google-developers.appspot.com/chart/interactive/docs/gallery/gauge#Configuration_Options
