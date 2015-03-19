@@ -68,7 +68,8 @@
                             "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "/widget": []
                 }
             },
             "AndroidManifest.xml": {
@@ -124,7 +125,8 @@
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "/manifest/application": []
                 }
             }
         }
