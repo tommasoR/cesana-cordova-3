@@ -139,10 +139,12 @@ void loop(){
   }
   Serial.print("Received: ");
     int contaChar=0;
+    int maxStr=sizeof(messaggio_ricevuto)-1;
     while (client->wait_for_data()) {
     char c = client->read();
-    if (contaChar < 500){
+    if (contaChar < maxStr){
       messaggio_ricevuto[contaChar]=c;
+      contaChar++;
       Serial.print(c);
     }
   }
@@ -156,6 +158,7 @@ void loop(){
 
 void decodifica(String msg){
   Serial.println(messaggio_ricevuto);
+  memset(&messaggio_ricevuto[0], 0, sizeof(messaggio_ricevuto));
 }
 
 void inner_loop_comandi_da_eseguire(){
