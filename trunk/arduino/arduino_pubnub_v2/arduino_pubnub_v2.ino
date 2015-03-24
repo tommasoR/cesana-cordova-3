@@ -43,14 +43,14 @@ char DEVID1[] = "vD6CBA2419476BA2";
 // Initialize the Ethernet client library
 // with the IP address and port of the server
 // that you want to connect to (port 80 is default for HTTP):
-EthernetClient client;
+//     EthernetClient client_eth;
 // fine 
 
 //Variabili
 unsigned long currentMillis = 0L;
 unsigned long previousMillisTemp = 0L;
 unsigned long premutoPulsanteCancelloMillis = 0L;
-char messaggio_ricevuto[500];
+//char messaggio_ricevuto[100];
 
 //rele
 #define PIN_RELE_CANCELLO    2
@@ -68,14 +68,13 @@ char messaggio_ricevuto[500];
     for more information see http://www.ladyada.net/make/logshield/lighttemp.html
     */
 //LM35 Pin Variables
-#define tempPin 1
-#define tempPin_su_scheda 3 //the analog pin the LM35's Vout (sense) pin is connected to
+#define tempPin A2
+#define tempPin_su_scheda A2 //the analog pin the LM35's Vout (sense) pin is connected to
     //the resolution is 10 mV / degree centigrade with a
   float temperatureC = 0.0; // the analog reading from the sensor
   float temperatureC_su_scheda = 0.0;
   int LM35sensor = 0;
   int LM35sensor_su_scheda = 0;
-  float volts = 0.0;
  
 void random_uuid() {
   randomSeed(analogRead(4) + millis() * 1024);
@@ -114,16 +113,6 @@ void setup() {
   initialize();
 }
 
-void flash(int ledPin){//da cancellare dopo test
-  /* Flash LED three times. */
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(ledPin, HIGH);
-    delay(100);
-    digitalWrite(ledPin, LOW);
-    delay(100);
-  }
-}//da cancellare dopo test
-
 void loop(){
   currentMillis = millis();
   String returnmessage;
@@ -138,28 +127,33 @@ void loop(){
     return;
   }
   Serial.print("Received: ");
-    int contaChar=0;
-    int maxStr=sizeof(messaggio_ricevuto)-1;
     while (client->wait_for_data()) {
     char c = client->read();
-    if (contaChar < maxStr){
+    Serial.print(c);
+    if(c=='#'){
+        digitalWrite(PIN_RELE_CANCELLO, HIGH);
+        delay(200);
+    } else {
+        digitalWrite(PIN_RELE_CANCELLO, LOW);
+    }
+    /*if (contaChar < maxStr){
       messaggio_ricevuto[contaChar]=c;
       contaChar++;
       Serial.print(c);
-    }
+    }*/
   }
   client->stop();
   Serial.println();
-  decodifica(messaggio_ricevuto);
-  inner_loop_comandi_da_eseguire();
+  //decodifica(messaggio_ricevuto);
+  //inner_loop_comandi_da_eseguire();
   //flash(subLedPin);
   delay(200);
 }
 
-void decodifica(String msg){
+/*void decodifica(String msg){
   Serial.println(messaggio_ricevuto);
   memset(&messaggio_ricevuto[0], 0, sizeof(messaggio_ricevuto));
-}
+}*/
 
 void inner_loop_comandi_da_eseguire(){
   apriCancello();
@@ -195,12 +189,8 @@ void readTemp() {
   if(currentMillis - previousMillisTemp > 5000) {//portare a un minuto
     // save the last time control
     previousMillisTemp = currentMillis;
-    calcolaTemp();
-  }
-}
-
-void calcolaTemp(){
-  //getting the voltage reading from the temperature sensor
+    float volts = 0.0;
+    //getting the voltage reading from the temperature sensor
     //LM35sensor = analogRead(tempPin);
     //lettura valore del sensore LM35 messo sull'ingresso
     //analogico A1
@@ -226,31 +216,33 @@ void calcolaTemp(){
       dtostrf(temperatureC_su_scheda, 2, 2, buff);
       allarmeMailPushingbox("Temperatura su scheda arduino superati:", buff);
     }
+  }
 }
+
 
 void allarmeMailPushingbox(String sensore, String messaggio){
   /*
   http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
   */
-    client.stop();
+    /*client_eth.stop();
     Serial.println("connecting pushingbox...");
-    if (client.connect(serverName, 80)) {
+    if (client_eth.connect(serverName, 80)) {
       Serial.println("connected");
       Serial.println("sendind request");
-      client.print("GET /pushingbox?devid=");
-      client.print(DEVID1);
-      client.print("&sensore=lm35");
-      client.print("&messaggio=");
-      client.print(messaggio);
-      client.println(" HTTP/1.1");
-      client.print("Host: ");
-      client.println(serverName);
-      client.println("User-Agent: Arduino");
-      client.println();
+      client_eth.print("GET /pushingbox?devid=");
+      client_eth.print(DEVID1);
+      client_eth.print("&sensore=lm35");
+      client_eth.print("&messaggio=");
+      client_eth.print(messaggio);
+      client_eth.println(" HTTP/1.1");
+      client_eth.print("Host: ");
+      client_eth.println(serverName);
+      client_eth.println("User-Agent: Arduino");
+      client_eth.println();
     }
     else {
       Serial.println("connection failed");
-    }
+    }*/
 }
 
 
