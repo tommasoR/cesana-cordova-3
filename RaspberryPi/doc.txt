@@ -1,0 +1,4 @@
+https://github.com/banasrini/PiToPubNub
+http://www.anites.com/2013/09/driving-relay-using-gpio.html
+http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python
+
