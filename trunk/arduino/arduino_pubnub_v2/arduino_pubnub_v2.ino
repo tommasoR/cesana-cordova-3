@@ -43,7 +43,7 @@ char DEVID1[] = "vD6CBA2419476BA2";
 // Initialize the Ethernet client library
 // with the IP address and port of the server
 // that you want to connect to (port 80 is default for HTTP):
-//     EthernetClient client_eth;
+//EthernetClient client_eth;
 // fine 
 
 //Variabili
@@ -84,19 +84,19 @@ void random_uuid() {
 }
 
 void initialize(){
-  Serial.begin(9600);
-  Serial.println("Serial set up");
+  //Serial.begin(9600);
+  //Serial.println("Serial set up");
   while (!Ethernet.begin(mac)) {
-    Serial.println("Ethernet setup error");
+    //Serial.println("Ethernet setup error");
     delay(1000);
   }
-  Serial.println("Ethernet set up");
-  Serial.print("My IP address: ");
-  Serial.println(Ethernet.localIP());
+  //Serial.println("Ethernet set up");
+  //Serial.print("My IP address: ");
+  //Serial.println(Ethernet.localIP());
   PubNub.begin(pubkey, subkey);
   random_uuid();
   PubNub.set_uuid(uuid);
-  Serial.println("PubNub set up");
+  //Serial.println("PubNub set up");
 }
 
 void setup() {
@@ -119,31 +119,26 @@ void loop(){
   Ethernet.maintain();
   inner_loop_sensori();
   PubSubClient *client;
-  Serial.println("waiting for a message (subscribe)");
+  //Serial.println("waiting for a message (subscribe)");
   client = PubNub.subscribe(channel);
   if (!client) {
-    Serial.println("subscription error");
+    //Serial.println("subscription error");
     delay(1000);
     return;
   }
-  Serial.print("Received: ");
+  //Serial.print("Received: ");
     while (client->wait_for_data()) {
     char c = client->read();
-    Serial.print(c);
+  //Serial.print(c);
     if(c=='#'){
         digitalWrite(PIN_RELE_CANCELLO, HIGH);
         delay(200);
     } else {
         digitalWrite(PIN_RELE_CANCELLO, LOW);
     }
-    /*if (contaChar < maxStr){
-      messaggio_ricevuto[contaChar]=c;
-      contaChar++;
-      Serial.print(c);
-    }*/
   }
   client->stop();
-  Serial.println();
+  //Serial.println();
   //decodifica(messaggio_ricevuto);
   //inner_loop_comandi_da_eseguire();
   //flash(subLedPin);
@@ -197,13 +192,13 @@ void readTemp() {
     volts = ( LM35sensor/1024.0)*5.0; //formula per ottenere la tensione di uscita dell'LM35 in volts
     temperatureC =volts*100.0;// valore espresso in gradi Celsius (l'out del sensore è 10mv per grado) 
     // print out the voltage
-    Serial.print(volts); Serial.println(" volts");
+ //Serial.print(volts); Serial.println(" volts");
     // now print out the temperature
-    Serial.print(temperatureC); Serial.println(" sensore di temperatura esterno C");
+ //Serial.print(temperatureC); Serial.println(" sensore di temperatura esterno C");
     volts = ( LM35sensor_su_scheda/1024.0)*5.0;
     temperatureC_su_scheda=volts*100.0;
     // now print out the temperature
-    Serial.print(temperatureC_su_scheda); Serial.println(" sensore di temperatura su scheda C");
+ //Serial.print(temperatureC_su_scheda); Serial.println(" sensore di temperatura su scheda C");
     
     if(temperatureC > 45){
       char buff[10];
@@ -224,11 +219,12 @@ void allarmeMailPushingbox(String sensore, String messaggio){
   /*
   http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
   */
-    /*client_eth.stop();
-    Serial.println("connecting pushingbox...");
+  EthernetClient client_eth;
+    client_eth.stop();
+    //Serial.println("connecting pushingbox...");
     if (client_eth.connect(serverName, 80)) {
-      Serial.println("connected");
-      Serial.println("sendind request");
+      //Serial.println("connected");
+      //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
       client_eth.print("&sensore=lm35");
@@ -241,8 +237,8 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client_eth.println();
     }
     else {
-      Serial.println("connection failed");
-    }*/
+      //Serial.println("connection failed");
+    }
 }
 
 
