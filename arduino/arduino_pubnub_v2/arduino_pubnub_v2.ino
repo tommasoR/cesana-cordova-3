@@ -126,22 +126,17 @@ void loop(){
     delay(1000);
     return;
   }
-  //Serial.print("Received: ");
+    //Serial.print("Received: ");
     while (client->wait_for_data()) {
     char c = client->read();
-  //Serial.print(c);
-    if(c=='#'){
-        digitalWrite(PIN_RELE_CANCELLO, HIGH);
-        delay(200);
-    } else {
-        digitalWrite(PIN_RELE_CANCELLO, LOW);
-    }
+    //Serial.print(c);
+    
+    if(c=='#'||c=='§'||c=='€'){
+      eseguire(c);
+    } 
   }
   client->stop();
   //Serial.println();
-  //decodifica(messaggio_ricevuto);
-  //inner_loop_comandi_da_eseguire();
-  //flash(subLedPin);
   delay(200);
 }
 
@@ -150,9 +145,16 @@ void loop(){
   memset(&messaggio_ricevuto[0], 0, sizeof(messaggio_ricevuto));
 }*/
 
-void inner_loop_comandi_da_eseguire(){
-  apriCancello();
-  apriCancelletto();
+void eseguire(char c ){
+  if(c=='#'){
+    apriCancello();
+  }
+  if(c=='§'){
+    apriCancelletto();
+  }
+  if(c=='§'){
+    inviaTemperatura();
+  }
 }
 
 void inner_loop_sensori(){
@@ -164,16 +166,23 @@ void readSensori(){
 }
 
 void apriCancello(){
-  if((premutoPulsanteCancelloMillis > 0) && (premutoPulsanteCancelloMillis + 2000 > currentMillis) && (currentMillis >= premutoPulsanteCancelloMillis)){
+  if(premutoPulsanteCancelloMillis + 5000 < currentMillis) {
     digitalWrite(PIN_RELE_CANCELLO, HIGH);
-  } else if (premutoPulsanteCancelloMillis > 0){
-    premutoPulsanteCancelloMillis = 0L;
+    premutoPulsanteCancelloMillis=currentMillis;
+    delay(500);
     digitalWrite(PIN_RELE_CANCELLO, LOW);
+    PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
+  } else if(premutoPulsanteCancelloMillis > currentMillis){
+    premutoPulsanteCancelloMillis=0L;
   }
 }
 
 void apriCancelletto(){
   
+}
+
+void inviaTemperatura(){
+  PubNub.publish(channel,"{\"avatar\": \"Arduino_temp_scheda\", \"text\": \"22\"}");
 }
 
 void readTemp() {
@@ -206,7 +215,7 @@ void readTemp() {
       dtostrf(temperatureC, 2, 2, buff);
       allarmeMailPushingbox("Temperatura in ingresso superati:", buff);
     }
-    if(temperatureC_su_scheda > 45){
+    if(temperatureC_su_scheda > 29){
       char buff[10];
       dtostrf(temperatureC_su_scheda, 2, 2, buff);
       allarmeMailPushingbox("Temperatura su scheda arduino superati:", buff);
@@ -235,9 +244,6 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client_eth.println(serverName);
       client_eth.println("User-Agent: Arduino");
       client_eth.println();
-    }
-    else {
-      //Serial.println("connection failed");
     }
 }
 
