@@ -81,14 +81,14 @@ function scollegati(){
 function apri(){
     p.publish({
         channel : channel,
-        message : {avatar: avatar.className, text: 'ApriCancello'}
+        message : {avatar: avatar.className, text: 'ApriCancello_#'}
     });
 }
 
 function apriPortoncino(){
     p.publish({
         channel : channel,
-        message : {avatar: avatar.className, text: 'OpenPortoncino'}
+        message : {avatar: avatar.className, text: 'OpenPortoncino_§'}
     });
 }
 
@@ -100,7 +100,7 @@ function getTemperaturaNoLog(){
         pollingArduinoTemp = new Date();
         p.publish({
             channel : channel,
-            message : {avatar: avatar.className, text: 'get_temperatura'}
+            message : {avatar: avatar.className, text: 'get_temperatura_€'}
         });
         //temperatura+=parseFloat('2.00');
     }

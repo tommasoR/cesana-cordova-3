@@ -19,6 +19,8 @@ per temperatura:(comando che nona appare nei log perchè inviato con una certa ca
 questo evento viene generato dopo un evento "get_temperatura" nel caso la temperatura superi una 
 certa soglia l'arduino deve mandare una mail di allarme
 {"avatar": "Arduino_temperatura", "text": "18.41"}
+{"avatar": "Arduino_temp_scheda", "text": "58.03"}
+
 
 per comando eseguito:
 {"avatar": "arduino color-2", "text": "Aperto cancello"}
@@ -34,11 +36,11 @@ ALLARME apertura porta!!!!!!:
 
 MEssaggi inviati da device mobile:
 
- {"avatar":"face-14 color-1","text":"ApriCancello"}
+ {"avatar":"face-14 color-1","text":"ApriCancello_#"}
 
- {"avatar":"face-14 color-1","text":"OpenPortoncino"}
+ {"avatar":"face-14 color-1","text":"OpenPortoncino_§"}
 
- {"avatar":"face-14 color-1","text":"get_temperatura"} evento richiamato ogni tot secondi per richiedere aggiornamento temperatura non loggato
+ {"avatar":"face-14 color-1","text":"get_temperatura_€"} evento richiamato ogni tot secondi per richiedere aggiornamento temperatura non loggato
 
 
 
