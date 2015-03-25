@@ -109,7 +109,8 @@ alert(error);
 
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          ['Temp', 15]
+          ['Temp', 15],
+          ['Temp scheda', 10]
         ]);
 
         var options = {
@@ -132,6 +133,11 @@ alert(error);
             setInterval(function() { 
               getTemperaturaNoLog();  
               data.setValue(0, 1, temperatura);
+              chart.draw(data, options);
+            }, 1000);
+            setInterval(function() { 
+              getTemperaturaNoLog();  
+              data.setValue(1, 1, temperatura_scheda);
               chart.draw(data, options);
             }, 1000);
         }
