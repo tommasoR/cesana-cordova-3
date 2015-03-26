@@ -182,7 +182,7 @@ void apriCancelletto(){
 }
 
 void inviaTemperatura(){
-  PubNub.publish(channel,"{\"avatar\": \"Arduino_temp_scheda\", \"text\": \"22\"}");
+  PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
 }
 
 void readTemp() {
@@ -213,7 +213,7 @@ void readTemp() {
       char buff[10];
       //dtostrf(FLOAT,WIDTH, PRECISION,BUFFER);
       dtostrf(temperatureC, 2, 2, buff);
-      allarmeMailPushingbox("Temperatura in ingresso superati:", buff);
+      allarmeMailPushingbox("Temperatura in ingresso gradi:", buff);
     }
     if(temperatureC_su_scheda > 29){
       char buff[10];
@@ -236,7 +236,8 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
-      client_eth.print("&sensore=lm35");
+      client_eth.print("&sensore=");
+      client_eth.print(sensore);
       client_eth.print("&messaggio=");
       client_eth.print(messaggio);
       client_eth.println(" HTTP/1.1");
