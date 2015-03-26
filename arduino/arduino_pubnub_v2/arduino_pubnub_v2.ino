@@ -31,7 +31,13 @@ This code is in the public domain.
 // Some Ethernet shields have a MAC address printed on a sticker on the shield;
 // fill in that address here, or choose your own at random:
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xEE, 0xEA };
-
+/* DNS
+Per configurare il dns senza modificare il metodo dhcp bisogna modificare nella classe Ethernet.cpp all'interno del metodo
+int EthernetClass::begin(uint8_t *mac_address) la linea 
+_dnsServerAddress = _dhcp->getDnsServerIp(); 
+con
+_dnsServerAddress = IPAddress(8,8,8,8).raw_address();
+*/
 char pubkey[] = "pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695";
 char subkey[] = "sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe";
 char channel[] = "cancello_client_arduino";
@@ -43,7 +49,7 @@ char DEVID1[] = "vD6CBA2419476BA2";
 // Initialize the Ethernet client library
 // with the IP address and port of the server
 // that you want to connect to (port 80 is default for HTTP):
-//EthernetClient client_eth;
+EthernetClient client_eth;
 // fine 
 
 //Variabili
@@ -213,12 +219,12 @@ void readTemp() {
       char buff[10];
       //dtostrf(FLOAT,WIDTH, PRECISION,BUFFER);
       dtostrf(temperatureC, 2, 2, buff);
-      allarmeMailPushingbox("Temperatura in ingresso gradi:", buff);
+      allarmeMailPushingbox("Temperatura in ingresso:", buff);
     }
     if(temperatureC_su_scheda > 29){
       char buff[10];
       dtostrf(temperatureC_su_scheda, 2, 2, buff);
-      allarmeMailPushingbox("Temperatura su scheda arduino superati:", buff);
+      allarmeMailPushingbox("Temperatura su scheda arduino:", buff);
     }
   }
 }
@@ -228,7 +234,6 @@ void allarmeMailPushingbox(String sensore, String messaggio){
   /*
   http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
   */
-  EthernetClient client_eth;
     client_eth.stop();
     //Serial.println("connecting pushingbox...");
     if (client_eth.connect(serverName, 80)) {
@@ -245,6 +250,8 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client_eth.println(serverName);
       client_eth.println("User-Agent: Arduino");
       client_eth.println();
+    } else {
+      client_eth.stop();
     }
 }
 
