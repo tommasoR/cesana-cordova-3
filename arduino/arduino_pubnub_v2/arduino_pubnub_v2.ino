@@ -37,6 +37,7 @@ int EthernetClass::begin(uint8_t *mac_address) la linea
 _dnsServerAddress = _dhcp->getDnsServerIp(); 
 con
 _dnsServerAddress = IPAddress(8,8,8,8).raw_address();
+
 */
 char pubkey[] = "pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695";
 char subkey[] = "sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe";
@@ -177,7 +178,17 @@ void apriCancello(){
     premutoPulsanteCancelloMillis=currentMillis;
     delay(500);
     digitalWrite(PIN_RELE_CANCELLO, LOW);
-    PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
+    int tentativi=0;
+    EthernetClient *client2;
+riprova:
+    client2 = PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
+    if ( !client2 && tentativi < 10) {
+      tentativi++;
+      delay(1000);
+      goto riprova;
+    } else{
+      client2->stop();
+    }
   } else if(premutoPulsanteCancelloMillis > currentMillis){
     premutoPulsanteCancelloMillis=0L;
   }
@@ -221,7 +232,7 @@ void readTemp() {
       dtostrf(temperatureC, 2, 2, buff);
       allarmeMailPushingbox("Temperatura in ingresso:", buff);
     }
-    if(temperatureC_su_scheda > 29){
+    if(temperatureC_su_scheda > 50){
       char buff[10];
       dtostrf(temperatureC_su_scheda, 2, 2, buff);
       allarmeMailPushingbox("Temperatura su scheda arduino:", buff);
@@ -241,10 +252,11 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
-      client_eth.print("&sensore=");
+      client_eth.print("&sensore='");
       client_eth.print(sensore);
-      client_eth.print("&messaggio=");
+      client_eth.print("'&messaggio='");
       client_eth.print(messaggio);
+      client_eth.print("'");
       client_eth.println(" HTTP/1.1");
       client_eth.print("Host: ");
       client_eth.println(serverName);
