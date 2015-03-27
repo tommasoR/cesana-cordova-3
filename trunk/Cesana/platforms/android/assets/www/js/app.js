@@ -29,7 +29,7 @@ callback : function(m) {
         temperatura=parseFloat(m.text);
     }else if(m.avatar === 'Arduino_temp_scheda'){
         temperatura_scheda=parseFloat(m.text);
-    }else if (m.text !=='get_temperatura'){   
+    }else if (m.text !=='get_temperatura_K'){   
     myDate = new Date();
     //var currentTime_format= currentTime.getHours()+':'+currentTime.getMinutes();
     output.innerHTML = '<p><i class="' + m.avatar + '"></i><span>' + m.text.replace( /[<>]/ig, '' ) +'<p style="font-size:10px">' + myDate.toString() +'</p></span></p>' + output.innerHTML;
@@ -81,14 +81,14 @@ function scollegati(){
 function apri(){
     p.publish({
         channel : channel,
-        message : {avatar: avatar.className, text: 'ApriCancello_#'}
+        message : {avatar: avatar.className, text: 'ApriCancello_Z'}
     });
 }
 
 function apriPortoncino(){
     p.publish({
         channel : channel,
-        message : {avatar: avatar.className, text: 'OpenPortoncino_§'}
+        message : {avatar: avatar.className, text: 'OpenPortoncino_Y'}
     });
 }
 
@@ -100,7 +100,7 @@ function getTemperaturaNoLog(){
         pollingArduinoTemp = new Date();
         p.publish({
             channel : channel,
-            message : {avatar: avatar.className, text: 'get_temperatura_€'}
+            message : {avatar: avatar.className, text: 'get_temperatura_K'}
         });
         //temperatura+=parseFloat('2.00');
     }
