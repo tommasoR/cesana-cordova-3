@@ -158,8 +158,7 @@ void loop(){
 void eseguire(char c ){
   if(c=='Z'){
     apriCancello();
-  }
-  if(c=='Y'){
+  } else if(c=='Y'){
     apriCancelletto();
   }
   //invia sempre temperatura :-)
