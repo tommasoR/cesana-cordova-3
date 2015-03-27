@@ -265,7 +265,7 @@ void allarmeMailPushingbox(String sensore, String messaggio){
  allarmeMail:   
     client_eth.stop();
     //Serial.println("connecting pushingbox...");
-    if (client_eth.connect(serverName, 80)&&(tentativi<10)) {
+    if (client_eth.connect(serverName, 80) && (tentativi<10)) {
       //Serial.println("connected");
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
