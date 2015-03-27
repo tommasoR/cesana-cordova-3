@@ -134,13 +134,16 @@ void loop(){
     return;
   }
     //Serial.print("Received: ");
-    while (client->wait_for_data()) {
+  while (client->wait_for_data()) {
     char c = client->read();
     //Serial.print(c);
-    
-    if(c=='#'||c=='§'||c=='€'){
-      eseguire(c);
-    } 
+     if(c=='_'){
+       c = client->read();
+      if(c=='Z'||c=='Y'||c=='K'){
+        eseguire(c);
+        break;
+      } 
+     }
   }
   client->stop();
   //Serial.println();
@@ -153,15 +156,16 @@ void loop(){
 }*/
 
 void eseguire(char c ){
-  if(c=='#'){
+  if(c=='Z'){
     apriCancello();
   }
-  if(c=='§'){
+  if(c=='Y'){
     apriCancelletto();
   }
-  if(c=='§'){
-    inviaTemperatura();
-  }
+  //invia sempre temperatura :-)
+  //if(c=='K'){
+  inviaTemperatura();
+  //}
 }
 
 void inner_loop_sensori(){
@@ -179,15 +183,15 @@ void apriCancello(){
     delay(500);
     digitalWrite(PIN_RELE_CANCELLO, LOW);
     int tentativi=0;
-    EthernetClient *client2;
+    EthernetClient *client_local;
 riprova:
-    client2 = PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
-    if ( !client2 && tentativi < 10) {
+    client_local = PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
+    if ( !client_local && tentativi < 10) {
       tentativi++;
       delay(1000);
       goto riprova;
     } else{
-      client2->stop();
+      client_local->stop();
     }
   } else if(premutoPulsanteCancelloMillis > currentMillis){
     premutoPulsanteCancelloMillis=0L;
@@ -199,7 +203,18 @@ void apriCancelletto(){
 }
 
 void inviaTemperatura(){
-  PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
+  int tentativi=0;
+  EthernetClient *client_local;
+  client_local =PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
+  reinvia:
+    if ( !client_local && tentativi < 10) {
+      tentativi++;
+      delay(1000);
+      goto reinvia;
+    } else{
+      client_local->stop();
+    }
+  
 }
 
 void readTemp() {
