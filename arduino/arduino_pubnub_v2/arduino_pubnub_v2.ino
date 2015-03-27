@@ -50,7 +50,7 @@ char DEVID1[] = "vD6CBA2419476BA2";
 // Initialize the Ethernet client library
 // with the IP address and port of the server
 // that you want to connect to (port 80 is default for HTTP):
-EthernetClient client_eth;
+//EthernetClient client_eth;
 // fine 
 
 //Variabili
@@ -258,11 +258,14 @@ void readTemp() {
 
 void allarmeMailPushingbox(String sensore, String messaggio){
   /*
-  http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore=lm35&messaggio=temperatura superiore 50 gradi
+  http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore='lm35'&messaggio='temperatura superiore 50 gradi'
   */
+    EthernetClient client_eth;
+    int tentativi=0;
+ allarmeMail:   
     client_eth.stop();
     //Serial.println("connecting pushingbox...");
-    if (client_eth.connect(serverName, 80)) {
+    if (client_eth.connect(serverName, 80)&&(tentativi<10)) {
       //Serial.println("connected");
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
@@ -279,7 +282,11 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client_eth.println();
     } else {
       client_eth.stop();
+      tentativi++;
+      goto allarmeMail;
     }
+    delay(1000);
+    client_eth.stop();
 }
 
 
