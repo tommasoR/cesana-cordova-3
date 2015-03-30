@@ -122,10 +122,10 @@ void loop()
   //callback function of sorts, to work with the received message
   do_something(returnmessage);
   Serial.println();
-  apriCancello();
+  /*apriCancello();
   readTemp();
   apriCancelletto();
-  readSensori();
+  readSensori();*/
 }
 
 void readSensori(){
