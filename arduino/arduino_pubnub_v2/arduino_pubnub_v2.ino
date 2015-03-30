@@ -132,20 +132,21 @@ void loop(){
     //Serial.println("subscription error");
     delay(1000);
     return;
-  }
+  } else {
     //Serial.print("Received: ");
-  while (client->wait_for_data()) {
+   while (client->wait_for_data()) {
     char c = client->read();
     //Serial.print(c);
      if(c=='_'){
        c = client->read();
       if(c=='Z'||c=='Y'||c=='K'){
         eseguire(c);
-        break;
       } 
      }
+   }
+   client->stop();
   }
-  client->stop();
+  
   //Serial.println();
   delay(200);
 }
