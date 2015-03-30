@@ -202,18 +202,15 @@ void apriCancelletto(){
 }
 
 void inviaTemperatura(){
-  int tentativi=0;
   EthernetClient *client_local;
+  char buff[10];
+  dtostrf(temperatureC_su_scheda, 2, 2, buff);
+  strcat(buff,"\"}");
+  char str[80]="{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}";
   client_local =PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
-  reinvia:
-    if ( !client_local && tentativi < 10) {
-      tentativi++;
-      delay(1000);
-      goto reinvia;
-    } else{
-      client_local->stop();
-    }
-  
+  //client_local =PubNub.publish(channel,strcat(str,buff));
+  delay(1000);
+  client_local->stop();
 }
 
 void readTemp() {
