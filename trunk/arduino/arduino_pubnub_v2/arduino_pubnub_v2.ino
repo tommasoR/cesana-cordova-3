@@ -97,6 +97,7 @@ void initialize(){
     //Serial.println("Ethernet setup error");
     delay(1000);
   }
+  
   //Serial.println("Ethernet set up");
   //Serial.print("My IP address: ");
   //Serial.println(Ethernet.localIP());
@@ -182,14 +183,10 @@ void apriCancello(){
     premutoPulsanteCancelloMillis=currentMillis;
     delay(500);
     digitalWrite(PIN_RELE_CANCELLO, LOW);
-    int tentativi=0;
     EthernetClient *client_local;
-riprova:
     client_local = PubNub.publish(channel,"{\"avatar\": \"arduino color-2\", \"text\": \"Aperto cancello\"}");
-    if ( !client_local && tentativi < 10) {
-      tentativi++;
+    if ( !client_local) {
       delay(1000);
-      goto riprova;
     } else{
       client_local->stop();
     }
@@ -205,11 +202,12 @@ void apriCancelletto(){
 void inviaTemperatura(){
   EthernetClient *client_local;
   char buff[10];
+  char str[80];
   dtostrf(temperatureC_su_scheda, 2, 2, buff);
-  strcat(buff,"\"}");
-  char str[80]="{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}";
-  client_local =PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
-  //client_local =PubNub.publish(channel,strcat(str,buff));
+  //char str[80]="{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}";
+  //client_local =PubNub.publish(channel,"{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"22\"}");
+  sprintf(str, "{\"avatar\":\"Arduino_temp_scheda\", \"text\":\"%s\"}", buff);
+  client_local =PubNub.publish(channel,str);
   delay(1000);
   client_local->stop();
 }
@@ -277,12 +275,12 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       client_eth.println(serverName);
       client_eth.println("User-Agent: Arduino");
       client_eth.println();
-    } else {
-      client_eth.stop();
       tentativi++;
+    } else {
+      tentativi++;
+      delay(1000);
       goto allarmeMail;
     }
-    delay(1000);
     client_eth.stop();
 }
 
