@@ -82,7 +82,8 @@ unsigned long premutoPulsanteCancelloMillis = 0L;
   float temperatureC_su_scheda = 0.0;
   int LM35sensor = 0;
   int LM35sensor_su_scheda = 0;
- 
+  PubSubClient *client;
+  
 void random_uuid() {
   randomSeed(analogRead(4) + millis() * 1024);
   snprintf(uuid, sizeof(uuid), "%04lx%04lx-%04lx-3333-9999-%04lx%04lx%04lx",
@@ -126,7 +127,7 @@ void loop(){
   String returnmessage;
   Ethernet.maintain();
   inner_loop_sensori();
-  PubSubClient *client;
+  
   //Serial.println("waiting for a message (subscribe)");
   client = PubNub.subscribe(channel);
   if (!client) {
