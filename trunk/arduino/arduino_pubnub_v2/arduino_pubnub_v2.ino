@@ -132,7 +132,7 @@ void loop(){
   if (!client) {
     //Serial.println("subscription error");
     delay(1000);
-    return;
+    //return;
   } else {
     //Serial.print("Received: ");
    while (client->wait_for_data()) {
