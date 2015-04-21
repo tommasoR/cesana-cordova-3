@@ -22,7 +22,8 @@
 #define PIN_RELE_CANCELLO    2
 #define PIN_RELE_CANCELLETTI 3
 
-/* contatto magnetico normalmente chiuso con resistenza di pull-up interna
+/* contatto magnetico normalmente chiuso con resistenza di pull-up interna 
+porta di ingresso
           contatto    NC
                   .--o---o--o GND
                   |    /\
@@ -71,7 +72,7 @@ void setup(void)
   Serial.begin(115200);
   
   // setto i contatti NC 
-  pinMode(NC_CONT_1, INPUT);           // set pin to input
+  pinMode(NC_CONT_1, INPUT);           // set pin to input porta di ingresso
   digitalWrite(NC_CONT_1, HIGH);       // turn on pullup resistors
   
   // initialize the digital pin's as an output.
@@ -89,8 +90,13 @@ void setup(void)
   rest.function("cancello",cancelloControl);
   
   // Give name and ID to device
-  rest.set_id("008");
-  rest.set_name("dapper_drake");
+  rest.set_id("001");
+  rest.set_name("ingresso");
+  
+  //setto variabili temeperatura
+  LM35sensor = analogRead(tempPin);
+  LM35sensor_su_scheda = analogRead(tempPin_su_scheda);
+  
 
   // Start the Ethernet connection and the server
   if (Ethernet.begin(mac) == 0) {
@@ -104,7 +110,7 @@ void setup(void)
   Serial.println(Ethernet.localIP());
 
   // Start watchdog
-  wdt_enable(WDTO_4S);
+  wdt_enable(WDTO_8S);
 }
 
 void loop() {  
@@ -113,7 +119,9 @@ void loop() {
   EthernetClient client = server.available();
   rest.handle(client);
   wdt_reset();
-  
+  readIngresso();
+  readTemp();
+  wdt_reset();
 }
 
 // Custom function accessible by the API
@@ -136,6 +144,16 @@ int cancelloControl(String command){
   delay(3000);
   digitalWrite(PIN_RELE_CANCELLO,LOW);
   return 1;
+}
+
+void readIngresso(){
+  int ingresso = digitalRead(NC_CONT_1);
+  if(ingresso){
+    delay(200);
+    if(digitalRead(NC_CONT_1)){
+      allarmeMailPushingbox("Apertura porta di ingresso:", "ALLARME");
+    }
+  }
 }
 
 void readTemp() {
