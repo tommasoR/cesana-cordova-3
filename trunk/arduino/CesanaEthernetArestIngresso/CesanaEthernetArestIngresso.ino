@@ -110,7 +110,7 @@ void setup(void)
   Serial.println(Ethernet.localIP());
 
   // Start watchdog
-  wdt_enable(WDTO_8S);
+  wdt_enable(WDTO_4S);
 }
 
 void loop() {  
@@ -121,7 +121,6 @@ void loop() {
   wdt_reset();
   readIngresso();
   readTemp();
-  wdt_reset();
 }
 
 // Custom function accessible by the API
@@ -209,11 +208,11 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
-      client_eth.print("&sensore='");
+      client_eth.print("&sensore=");
       client_eth.print(sensore);
-      client_eth.print("'&messaggio='");
+      client_eth.print("&messaggio=");
       client_eth.print(messaggio);
-      client_eth.print("'");
+      client_eth.print("");
       client_eth.println(" HTTP/1.1");
       client_eth.print("Host: ");
       client_eth.println(serverName);

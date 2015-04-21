@@ -1,0 +1,9 @@
+http://cesana.no-ip.org/cancello
+{"return_value": 2, "id": "001", "name": "ingresso", "connected": true}
+
+http://cesana.no-ip.org/portoncino
+{"return_value": 1, "id": "001", "name": "ingresso", "connected": true}
+
+
+cesana.no-ip.org
+{"variables": {"LM35sensor": 61, "LM35sensor_su_scheda": 61}, "id": "001", "name": "ingresso", "connected": true}
