@@ -143,7 +143,7 @@ int cancelloControl(String command){
   digitalWrite(PIN_RELE_CANCELLO,HIGH);
   delay(3000);
   digitalWrite(PIN_RELE_CANCELLO,LOW);
-  return 1;
+  return 2;
 }
 
 void readIngresso(){
