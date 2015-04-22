@@ -47,7 +47,7 @@ int LM35sensor_su_scheda = 0;
 //Variabili
 unsigned long currentMillis = 0L;
 unsigned long previousMillisTemp = 0L;
-unsigned long premutoPulsanteCancelloMillis = 0L;
+unsigned long EventoIngressoMillis = 0L;
   
 // Enter a MAC address for your controller below.
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0xFE, 0x40 };
@@ -114,11 +114,14 @@ void setup(void)
 }
 
 void loop() {  
+  currentMillis=millis();
   
   // listen for incoming clients
   EthernetClient client = server.available();
   rest.handle(client);
   wdt_reset();
+  
+  //sensori interni
   readIngresso();
   readTemp();
 }
@@ -149,8 +152,9 @@ void readIngresso(){
   int ingresso = digitalRead(NC_CONT_1);
   if(ingresso){
     delay(200);
-    if(digitalRead(NC_CONT_1)){
-      allarmeMailPushingbox("Apertura porta di ingresso:", "ALLARME");
+    if(digitalRead(NC_CONT_1) && ((currentMillis-EventoIngressoMillis) > 300000L)){
+      EventoIngressoMillis = currentMillis;
+      allarmeMailPushingbox("Apertura porta di ingresso:", "ALLARME intrusione!");
     }
   }
 }
@@ -160,7 +164,7 @@ void readTemp() {
   LM35sensor /=2;
   LM35sensor_su_scheda += analogRead(tempPin_su_scheda);
   LM35sensor_su_scheda /=2;
-  if(currentMillis - previousMillisTemp > 5000) {//portare a un minuto
+  if(currentMillis - previousMillisTemp > 60000) {//portare a un minuto
     // save the last time control
     previousMillisTemp = currentMillis;
     float volts = 0.0;
