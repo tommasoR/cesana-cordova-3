@@ -69,7 +69,7 @@ aREST rest = aREST();
 void setup(void)
 {  
   // Start Serial
-  Serial.begin(115200);
+  //---Serial.begin(115200);
   
   // setto i contatti NC 
   pinMode(NC_CONT_1, INPUT);           // set pin to input porta di ingresso
@@ -96,18 +96,18 @@ void setup(void)
   //setto variabili temeperatura
   LM35sensor = analogRead(tempPin);
   LM35sensor_su_scheda = analogRead(tempPin_su_scheda);
-  
-
+  //tom
+  Ethernet.begin(mac, ip);
   // Start the Ethernet connection and the server
-  if (Ethernet.begin(mac) == 0) {
-    Serial.println("Failed to configure Ethernet using DHCP");
+  /*if (Ethernet.begin(mac) == 0) {
+    //---Serial.println("Failed to configure Ethernet using DHCP");
     // no point in carrying on, so do nothing forevermore:
     // try to congifure using IP address instead of DHCP:
     Ethernet.begin(mac, ip);
-  }
+  }*/
   server.begin();
-  Serial.print("server is at ");
-  Serial.println(Ethernet.localIP());
+  //---Serial.print("server is at ");
+  //---Serial.println(Ethernet.localIP());
 
   // Start watchdog
   wdt_enable(WDTO_4S);
@@ -128,8 +128,8 @@ void loop() {
 
 // Custom function accessible by the API
 int portoncinoControl(String command) {
-  Serial.print("portoncinoControl: ");
-  Serial.println(command);
+  //---Serial.print("portoncinoControl: ");
+  //---Serial.println(command);
   // Get state from command
   //int state = command.toInt();
   
@@ -140,8 +140,8 @@ int portoncinoControl(String command) {
 }
 
 int cancelloControl(String command){
-  Serial.print("cancelloControl: ");
-  Serial.println(command);
+  //---Serial.print("cancelloControl: ");
+  //---Serial.println(command);
   digitalWrite(PIN_RELE_CANCELLO,HIGH);
   delay(3000);
   digitalWrite(PIN_RELE_CANCELLO,LOW);
