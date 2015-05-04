@@ -108,9 +108,10 @@ void setup(void)
   server.begin();
   //---Serial.print("server is at ");
   //---Serial.println(Ethernet.localIP());
+  allarmeMailPushingbox("Start servizio:", "192,168,1,200");
 
   // Start watchdog
-  wdt_enable(WDTO_4S);
+  wdt_enable(WDTO_8S);
 }
 
 void loop() {  
