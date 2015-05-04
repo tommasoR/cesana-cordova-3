@@ -70,6 +70,10 @@ void setup(void)
 {  
   // Start Serial
   //---Serial.begin(115200);
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo only
+  }
   
   // setto i contatti NC 
   pinMode(NC_CONT_1, INPUT);           // set pin to input porta di ingresso
@@ -144,7 +148,7 @@ int cancelloControl(String command){
   //---Serial.print("cancelloControl: ");
   //---Serial.println(command);
   digitalWrite(PIN_RELE_CANCELLO,HIGH);
-  delay(3000);
+  delay(2000);
   digitalWrite(PIN_RELE_CANCELLO,LOW);
   return 2;
 }
