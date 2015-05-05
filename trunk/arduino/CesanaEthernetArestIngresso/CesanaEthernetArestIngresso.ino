@@ -4,7 +4,7 @@
   See the README file for more details.
  
  Sensore di temperatura LM35 su pin A1,A3
- Sensore NC su    pin 8
+ Sensore NC su    pin 9
  Rele cancello    pin 2
  Relé cancelletti pin 3
  
@@ -29,7 +29,7 @@ porta di ingresso
                   |    /\
  Pin 8 o-----------
  */
-#define NC_CONT_1  8
+#define NC_CONT_1  9
 
 /* Sensor test sketch
     for more information see http://www.ladyada.net/make/logshield/lighttemp.html
