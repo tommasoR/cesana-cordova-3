@@ -68,6 +68,7 @@ aREST rest = aREST();
 
 void setup(void)
 {  
+  delay( 50 );   // allow some time (50 ms) after powerup and sketch start, for the Wiznet W5100 Reset IC to release and come out of reset.
   // Start Serial
   //---Serial.begin(115200);
   Serial.begin(9600);
@@ -106,7 +107,7 @@ void setup(void)
 
   pinMode(10,OUTPUT);
   digitalWrite(10,HIGH);
-  delay(500);
+  delay(500); // allow some time (50 ms) after powerup and sketch start, for the Wiznet W5100 Reset IC to release and come out of reset.
   //
   Ethernet.begin(mac, ip);
   // Start the Ethernet connection and the server
