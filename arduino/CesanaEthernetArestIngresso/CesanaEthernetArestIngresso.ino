@@ -100,7 +100,14 @@ void setup(void)
   //setto variabili temeperatura
   LM35sensor = analogRead(tempPin);
   LM35sensor_su_scheda = analogRead(tempPin_su_scheda);
-  //tom
+  //tom modifiche adottate per ovviare al blocco della scheda ethernet
+  pinMode(4,OUTPUT);
+  digitalWrite(4,HIGH);
+
+  pinMode(10,OUTPUT);
+  digitalWrite(10,HIGH);
+  delay(500);
+  //
   Ethernet.begin(mac, ip);
   // Start the Ethernet connection and the server
   /*if (Ethernet.begin(mac) == 0) {
@@ -217,11 +224,11 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
-      client_eth.print("&sensore=");
+      client_eth.print("&sensore='");
       client_eth.print(sensore);
-      client_eth.print("&messaggio=");
+      client_eth.print("' &messaggio='");
       client_eth.print(messaggio);
-      client_eth.print("");
+      client_eth.print("' ");
       client_eth.println(" HTTP/1.1");
       client_eth.print("Host: ");
       client_eth.println(serverName);
