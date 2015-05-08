@@ -107,8 +107,7 @@ void setup(void)
 
   pinMode(10,OUTPUT);
   digitalWrite(10,HIGH);
-  delay(500); // allow some time (50 ms) after powerup and sketch start, for the Wiznet W5100 Reset IC to release and come out of reset.
-  //
+  delay(10000); // attendi 10 secondi per dare tempo di chiudere la porta 
   Ethernet.begin(mac, ip);
   // Start the Ethernet connection and the server
   /*if (Ethernet.begin(mac) == 0) {
@@ -147,7 +146,7 @@ int portoncinoControl(String command) {
   //int state = command.toInt();
   
   digitalWrite(PIN_RELE_CANCELLETTI,HIGH);
-  delay(1000);
+  delay(2000);
   digitalWrite(PIN_RELE_CANCELLETTI,LOW);
   return 1;
 }
@@ -167,7 +166,7 @@ void readIngresso(){
     delay(200);
     if(digitalRead(NC_CONT_1) && ((currentMillis-EventoIngressoMillis) > 300000L)){
       EventoIngressoMillis = currentMillis;
-      allarmeMailPushingbox("Apertura porta di ingresso:", "ALLARME intrusione!");
+      allarmeMailPushingbox("Apertura_porta_di_ingresso:", "ALLARME_intrusione!");
     }
   }
 }
@@ -177,7 +176,7 @@ void readTemp() {
   LM35sensor /=2;
   LM35sensor_su_scheda += analogRead(tempPin_su_scheda);
   LM35sensor_su_scheda /=2;
-  if(currentMillis - previousMillisTemp > 60000) {//portare a un minuto
+  if(currentMillis - previousMillisTemp > 60000) {// un minuto
     // save the last time control
     previousMillisTemp = currentMillis;
     float volts = 0.0;
@@ -191,8 +190,7 @@ void readTemp() {
  //Serial.print(volts); Serial.println(" volts");
     // now print out the temperature
  //Serial.print(temperatureC); Serial.println(" sensore di temperatura esterno C");
-    volts = ( LM35sensor_su_scheda/1024.0)*5.0;
-    temperatureC_su_scheda=volts*100.0;
+    temperatureC_su_scheda = ( LM35sensor_su_scheda/1024.0)*500.0;
     // now print out the temperature
  //Serial.print(temperatureC_su_scheda); Serial.println(" sensore di temperatura su scheda C");
     
@@ -200,12 +198,12 @@ void readTemp() {
       char buff[10];
       //dtostrf(FLOAT,WIDTH, PRECISION,BUFFER);
       dtostrf(temperatureC, 2, 2, buff);
-      allarmeMailPushingbox("Temperatura in ingresso:", buff);
+      allarmeMailPushingbox("Temperatura_in_ingresso:", buff);
     }
     if(temperatureC_su_scheda > 50){
       char buff[10];
       dtostrf(temperatureC_su_scheda, 2, 2, buff);
-      allarmeMailPushingbox("Temperatura su scheda arduino:", buff);
+      allarmeMailPushingbox("Temperatura_su_scheda_arduino:", buff);
     }
   }
 }
