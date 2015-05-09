@@ -19,8 +19,8 @@
 #include "aREST.h"
 #include <avr/wdt.h>
 
-#define PIN_RELE_CANCELLO    2
-#define PIN_RELE_CANCELLETTI 3
+#define PIN_RELE_CANCELLO    2//led verde
+#define PIN_RELE_CANCELLETTI 3//led rosso
 
 /* contatto magnetico normalmente chiuso con resistenza di pull-up interna 
 porta di ingresso
