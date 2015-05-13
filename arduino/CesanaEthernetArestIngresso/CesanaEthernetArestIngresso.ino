@@ -119,7 +119,7 @@ void setup(void)
   server.begin();
   //---Serial.print("server is at ");
   //---Serial.println(Ethernet.localIP());
-  allarmeMailPushingbox("Start servizio:", "192,168,1,200");
+  allarmeMailPushingbox("Start_servizio:", "192,168,1,200");
 
   // Start watchdog
   wdt_enable(WDTO_8S);
@@ -209,7 +209,7 @@ void readTemp() {
 }
 
 
-void allarmeMailPushingbox(String sensore, String messaggio){
+void allarmeMailPushingbox(String sensore, String msg){
   /*
   http://api.pushingbox.com/pushingbox?devid=vD6CBA2419476BA2&sensore='lm35'&messaggio='temperatura superiore 50 gradi'
   */
@@ -223,11 +223,11 @@ void allarmeMailPushingbox(String sensore, String messaggio){
       //Serial.println("sendind request");
       client_eth.print("GET /pushingbox?devid=");
       client_eth.print(DEVID1);
-      client_eth.print("&sensore='");
+      client_eth.print("&sensore=");
       client_eth.print(sensore);
-      client_eth.print("' &messaggio='");
-      client_eth.print(messaggio);
-      client_eth.print("' ");
+      client_eth.print("&messaggio=");
+      client_eth.print(msg);
+      client_eth.print(" ");
       client_eth.println(" HTTP/1.1");
       client_eth.print("Host: ");
       client_eth.println(serverName);
